@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, Clock, MessageCircle, Send, Globe, Award } from 'l
 
 const Contact = () => {
   const contactNumbers = [
-    { number: '+48 663378038', country: 'Poland', flag: '🇵🇱' },
+    { number: '+48 453283281', country: 'Poland', flag: '🇵🇱' },
     { number: '+91 8076823071', country: 'India', flag: '🇮🇳' },
     { number: '+48 793917254', country: 'Poland', flag: '🇵🇱' },
     { number: '+1 555 719 1438', country: 'USA', flag: '🇺🇸' }
@@ -41,11 +41,11 @@ const Contact = () => {
                   <MapPin className="h-7 w-7 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-xl mb-3 tracking-tight">Premium Office</h4>
+                  <h4 className="font-bold text-gray-900 text-xl mb-3 tracking-tight">Main Office</h4>
                   <p className="text-gray-600 leading-relaxed font-light">
-                    Floor No.: 139, Unit 101, Oxford Towers<br />
-                    HAL Old Airport Road, Landmark: Dhanalakshmi Aquarium<br />
-                    H.A.L II Stage, Bengaluru, Karnataka - 560008
+                  UNIT 101, Oxford Tower, 139, <br /> 
+                  HAL Old Airport Rd, Kodihalli, <br />
+                  Bengaluru, Karnataka 560008, India
                   </p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                   <Phone className="h-7 w-7 text-white" />
                 </div>
                 <div className="w-full">
-                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight">Premium WhatsApp Support</h4>
+                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight">WhatsApp Support</h4>
                   <div className="grid gap-3">
                     {contactNumbers.map((contact, index) => (
                       <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50/80 to-emerald-50/80 rounded-2xl border border-green-100/50 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
@@ -126,7 +126,7 @@ const Contact = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-indigo-50/30"></div>
             
             <div className="relative">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">Premium Contact Form</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">Contact Form</h3>
               
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -202,7 +202,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-4 px-6 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
-                  Send Premium Message
+                  Send Message
                   <Send className="ml-3 h-5 w-5" />
                 </button>
               </form>
@@ -212,7 +212,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-6 text-lg font-light">Prefer instant messaging?</p>
                   <button className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-green-500/25 transition-all duration-500 font-semibold shadow-lg transform hover:-translate-y-1">
                     <MessageCircle className="h-5 w-5 mr-3" />
-                    Premium WhatsApp Support
+                    WhatsApp Support
                   </button>
                 </div>
               </div>
@@ -225,7 +225,7 @@ const Contact = () => {
           <div className="relative text-center">
             <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
               <Award className="h-4 w-4 mr-2 text-yellow-400" />
-              <span className="text-sm font-semibold text-yellow-200 tracking-wide">Premium Credentials</span>
+              <span className="text-sm font-semibold text-yellow-200 tracking-wide">Credentials</span>
             </div>
             <h3 className="text-3xl font-bold mb-8 tracking-tight">Trusted & Certified Excellence</h3>
             

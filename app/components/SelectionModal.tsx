@@ -18,14 +18,20 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
   const [countdown, setCountdown] = useState(0)
   const router = useRouter()
 
-  // Auto-select and start countdown when opened if requested
-  useEffect(() => {
-    if (isOpen && autoStart && initialOption) {
-      setSelectedOption(initialOption)
-      setShowCountdown(true)
-      setCountdown(5)
-    }
-  }, [isOpen, autoStart, initialOption])
+  // // Auto-select and start countdown when opened if requested
+  // useEffect(() => {
+  //   if (isOpen && autoStart && initialOption) {
+  //     setSelectedOption(initialOption)
+  //     setShowCountdown(true)
+  //     setCountdown(5)
+  //   }
+  // }, [isOpen, autoStart, initialOption])
+
+
+
+  
+
+  //// Selected Option ends
 
   useEffect(() => {
     if (showCountdown && selectedOption) {

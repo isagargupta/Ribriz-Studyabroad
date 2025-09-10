@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -55,14 +56,14 @@ export default function CareerApplicationForm() {
     { value: 'czech-republic', label: '🇨🇿 Czech Republic' },
     { value: 'lithuania', label: '🇱🇹 Lithuania' },
     { value: 'slovakia', label: '🇸🇰 Slovakia' },
-    { value: 'hungary', label: '🇭🇺 Hungary' },
+    { value: 'hungary', label: '🇭🇺 Hungary' '(Most Popular)' },
     { value: 'other-eu', label: '🇪🇺 Other EU Country' }
   ]
 
   const jobCategories = [
     { value: '', label: 'Select job category' },
     { value: 'developer-jobs', label: '💻 Developer Jobs', popular: true },
-    { value: 'marketing', label: '📈 Marketing & Digital Marketing' },
+    { value: 'marketing', label: '📈 Marketing & Digital Marketing', popular: true },
     { value: 'sales', label: '💼 Sales & Business Development' },
     { value: 'engineering', label: '⚙️ Engineering & Technical' },
     { value: 'finance', label: '💰 Finance & Accounting' },
@@ -259,18 +260,13 @@ export default function CareerApplicationForm() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                  <Globe className="h-5 w-5 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full shadow-sm"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                  Ribriz Overseas
-                </h1>
-                <p className="text-xs font-semibold text-blue-600 tracking-wider uppercase">Global Excellence</p>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Ribriz Overseas Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             
             <Link 

@@ -32,7 +32,7 @@ const MediaCoverage = () => {
       id: 'dailyhunt',
       name: 'Daily Hunt',
       logo: '/media-logos/dailyhunt-logo.png',
-      url: 'https://m.dailyhunt.in/news/india/english/republic+news+india-epaper-dhfacc36dfce9c4bb68db0e89d033c921b/ribriz+overseas+venture+expands+global+reach+partners+with+over+700+universities+worldwide-newsid-dhfacc36dfce9c4bb68db0e89d033c921b_9e21e450ee8f11efb7fcb93ad73f2fc5?sm=Y',
+      url: 'https://m.dailyhunt.in/news/india/english/republic+news+india-epaper-dhfacc36dfce9c4bb68db0e89d033c921b/ribriz+overseas+venture+expands+global+reach+partners+with+over+700+universities+worldwide-newsid-dhfacc36dfce9c4bb68db0e89d033c921b_9e21e450ee8f11efb7fcb93ad73f2fc5',
       color: 'from-blue-500 to-blue-600',
       description: 'Leading digital news platform covering Ribriz Overseas\' expansion to 700+ university partnerships worldwide.'
     },
@@ -71,7 +71,26 @@ const MediaCoverage = () => {
         const newCount = (prev[outlet.id] || 0) - 1
         if (newCount <= 0) {
           clearInterval(countdownInterval)
-          window.open(outlet.url, '_blank')
+          try {
+            // Try to open in new tab with proper attributes
+            const newWindow = window.open(outlet.url, '_blank', 'noopener,noreferrer')
+            if (!newWindow) {
+              // If popup blocked, try direct navigation
+              window.location.href = outlet.url
+            }
+          } catch (error) {
+            console.error('Failed to open media link:', error)
+            // Fallback: copy URL to clipboard
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(outlet.url).then(() => {
+                alert(`Link copied to clipboard: ${outlet.url}`)
+              }).catch(() => {
+                alert(`Please visit: ${outlet.url}`)
+              })
+            } else {
+              alert(`Please visit: ${outlet.url}`)
+            }
+          }
           setRedirecting(prevRed => ({ ...prevRed, [outlet.id]: false }))
           return { ...prev, [outlet.id]: 0 }
         }

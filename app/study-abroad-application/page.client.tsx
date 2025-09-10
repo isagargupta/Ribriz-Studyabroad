@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { ArrowRight, ChevronLeft, Star, Globe, GraduationCap, BookOpen, Award, Sparkles, TrendingUp, User, Mail, Phone, MapPin, CheckCircle, Calendar, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function StudyAbroadForm() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -165,18 +166,13 @@ export default function StudyAbroadForm() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <Link href="/" className="flex items-center space-x-4">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                    <Globe className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full shadow-sm"></div>
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                    Ribriz Overseas
-                  </h1>
-                  <p className="text-xs font-semibold text-blue-600 tracking-wider uppercase">Global Excellence</p>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Ribriz Overseas Logo"
+                  width={180}
+                  height={60}
+                  className="h-12 w-auto object-contain"
+                />
               </Link>
               
               <Link 
@@ -329,18 +325,13 @@ export default function StudyAbroadForm() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                  <Globe className="h-5 w-5 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full shadow-sm"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                  Ribriz Overseas
-                </h1>
-                <p className="text-xs font-semibold text-blue-600 tracking-wider uppercase">Global Excellence</p>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Ribriz Overseas Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             
             <Link 
@@ -382,7 +373,7 @@ export default function StudyAbroadForm() {
               <div className="flex items-center space-x-6 text-sm">
                 <div className="flex items-center">
                   <Star className="h-4 w-4 mr-1 text-yellow-500 fill-current" />
-                  <span className="font-semibold text-gray-800">4.7/5 Trustpilot</span>
+                  {/* <span className="font-semibold text-gray-800">4.7/5 Trustpilot</span> */}
                 </div>
                 <div className="flex items-center">
                   <Star className="h-4 w-4 mr-1 text-yellow-500 fill-current" />

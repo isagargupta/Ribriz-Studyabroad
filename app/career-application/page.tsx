@@ -1,8 +1,10 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
+import Head from 'next/head'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -16,6 +18,99 @@ const keyFromKind = (kind: UploadKind): FileKey =>
 
 export default function CareerApplicationForm() {
   const [currentStep, setCurrentStep] = useState(1)
+
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "International Job Opportunities for Indians",
+    "description": "Apply for verified job opportunities in Europe for Indian professionals. Jobs in Poland, Germany, Lithuania, Slovakia, and other EU countries.",
+    "datePosted": new Date().toISOString(),
+    "validThrough": new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString(),
+    "employmentType": ["FULL_TIME", "PART_TIME", "CONTRACTOR"],
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Ribriz Overseas",
+      "sameAs": "https://ribriz.com"
+    },
+    "jobLocation": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "PL",
+          "addressLocality": "Poland"
+        }
+      },
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "DE",
+          "addressLocality": "Germany"
+        }
+      },
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "LT",
+          "addressLocality": "Lithuania"
+        }
+      }
+    ],
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 35000,
+        "maxValue": 80000,
+        "unitText": "YEAR"
+      }
+    },
+    "qualifications": "Relevant work experience, English proficiency, valid passport",
+    "responsibilities": "Various positions available including software development, marketing, sales, engineering, finance, HR, customer service, logistics, healthcare, education, and hospitality roles",
+    "skills": "Communication skills, technical expertise relevant to job role, adaptability, cultural awareness"
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of jobs are available in Europe for Indians?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Europe offers diverse job opportunities for Indians including software development, marketing, sales, engineering, finance, HR, customer service, logistics, healthcare, education, and hospitality roles. Both skilled and unskilled positions are available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a work permit to work in Europe as an Indian?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Indian citizens need work permits to work in Europe. We assist with the work permit application process and connect you with employers who sponsor work permits for qualified candidates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the salary range for jobs in Europe for Indians?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Salary ranges vary by country and role. In Poland, salaries typically range from €35,000-65,000 annually for skilled positions. Germany offers €45,000-80,000, while Lithuania and Slovakia offer €30,000-55,000 for similar roles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the job application process take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The application process typically takes 2-4 weeks for initial screening, followed by 4-8 weeks for work permit processing. Total timeline is usually 2-3 months from application to job start."
+        }
+      }
+    ]
+  }
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [countdown, setCountdown] = useState(5)
@@ -253,25 +348,44 @@ export default function CareerApplicationForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+    <>
+      <Head>
+        <title>Jobs in Europe for Indians | Poland, Germany, Lithuania, Slovakia | Apply Now | Ribriz Overseas</title>
+        <meta name="description" content="Apply for verified jobs in Europe for Indians. Software developer, marketing, sales, engineering jobs in Poland, Germany, Lithuania, Slovakia. Work permits & visa assistance." />
+        <meta name="keywords" content="jobs in Europe for Indians, jobs in Poland for Indians, jobs in Germany for Indians, jobs in Lithuania for Indians, jobs in Slovakia for Indians, work permits for Indians in Europe, skilled jobs abroad, unskilled jobs abroad, warehouse jobs in Europe, construction jobs abroad, truck driver jobs abroad, welder jobs abroad, factory jobs abroad" />
+        <link rel="canonical" href="https://ribriz.com/career-application" />
+        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobPostingSchema)
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema)
+          }}
+        />
+      </Head>
+      
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+            
+
             <Link href="/" className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                  <Globe className="h-5 w-5 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full shadow-sm"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                  Ribriz Overseas
-                </h1>
-                <p className="text-xs font-semibold text-blue-600 tracking-wider uppercase">Global Excellence</p>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Ribriz Overseas Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
+
             
             <Link 
               href="/"
@@ -765,5 +879,6 @@ export default function CareerApplicationForm() {
         </div>
       </main>
     </div>
+    </>
   )
 }

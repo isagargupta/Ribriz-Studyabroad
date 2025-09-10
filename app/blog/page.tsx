@@ -101,10 +101,46 @@ export default function BlogPage() {
     'Student Visa', 'Scholarships', 'Part-time Jobs', 'Cost Guide', 'Universities'
   ]
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Study Abroad Expert Blog",
+    "description": "Expert insights, guides, and tips for Indian students studying abroad. Latest updates on universities, scholarships, visas, and career opportunities.",
+    "url": "https://ribriz.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ribriz Overseas",
+      "url": "https://ribriz.com"
+    },
+    "blogPost": featuredPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "url": `https://ribriz.com/blog/${post.slug}`,
+      "datePublished": post.publishDate,
+      "author": {
+        "@type": "Organization",
+        "name": "Ribriz Overseas"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ribriz Overseas"
+      },
+      "image": post.image,
+      "keywords": post.tags.join(", ")
+    }))
+  }
+
   // SEO optimization
   React.useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.title = 'Study Abroad Expert Blog | Ribriz Overseas'
+      document.title = 'Study Abroad Expert Blog for Indian Students | Universities, Scholarships, Visa Guide | Ribriz Overseas'
+      
+      // Add structured data
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.text = JSON.stringify(blogSchema)
+      document.head.appendChild(script)
     }
   }, [])
 

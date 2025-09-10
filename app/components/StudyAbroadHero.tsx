@@ -83,7 +83,7 @@ const StudyAbroadHero = () => {
             </div>
 
             <div className="grid grid-cols-4 gap-8 py-8">
-              <div className="text-center group" onClick={() => setIsModalOpen(true)}>
+              <div className="text-center group" onClick={() => window.location.href = '/study-abroad-application'}>
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 cursor-pointer">
                   <GraduationCap className="h-8 w-8 text-purple-600" />
                 </div>
@@ -147,7 +147,7 @@ const StudyAbroadHero = () => {
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-purple-50/80 to-blue-50/80 rounded-2xl p-6 border border-purple-100/50 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" onClick={() => setIsModalOpen(true)}>
+                <div className="bg-gradient-to-r from-purple-50/80 to-blue-50/80 rounded-2xl p-6 border border-purple-100/50 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" onClick={() => window.location.href = '/study-abroad-application'}>
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/25">
                       <GraduationCap className="h-6 w-6 text-white" />
@@ -193,7 +193,7 @@ const StudyAbroadHero = () => {
             </div>
 
             <Link 
-              href="/study-abroad/"
+              href="/study-abroad-application"
               className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white py-4 rounded-2xl hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-500 font-semibold tracking-wide transform hover:-translate-y-1 flex items-center justify-center group"
             >
               Get Your University Shortlist
@@ -217,7 +217,7 @@ const StudyAbroadHero = () => {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="group bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-gray-100/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden cursor-pointer" onClick={() => setIsModalOpen(true)}>
+            <div className="group bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-gray-100/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden cursor-pointer" onClick={() => window.location.href = '/study-abroad-application'}>
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
@@ -268,7 +268,7 @@ const StudyAbroadHero = () => {
         </div>
       </div>
 
-      <SelectionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialOption="study" autoStart={true} />
+      <SelectionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

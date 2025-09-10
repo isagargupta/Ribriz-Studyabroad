@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ArrowRight, CheckCircle, Globe, Users, Award, Sparkles, TrendingUp, Shield } from 'lucide-react'
+import SelectionModal from './SelectionModal'
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 overflow-hidden">
       <div className="absolute inset-0">
@@ -22,53 +25,59 @@ const Hero = () => {
               
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
                 <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                  Where Ambition
+                  Study Abroad & Jobs
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 bg-clip-text text-transparent">
-                  Meets Opportunity
+                  in Europe for Indians
                 </span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light">
-                Connect with verified international opportunities. Join thousands who've launched 
-                their global careers through our premium placement services.
+                Expert guidance for Indian students studying abroad in UK, USA, Australia, Canada, Germany, Poland. 
+                Verified job opportunities in Europe with work permit assistance.
               </p>
             </div>
 
             <div className="grid grid-cols-3 gap-8 py-8">
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">100%</div>
-                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Verified</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">700+</div>
+                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Universities</div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">5+</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">15+</div>
                 <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Countries</div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">1000+</div>
-                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Placements</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">5000+</div>
+                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Students</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="group bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide flex items-center justify-center transform hover:-translate-y-1">
-                Start Your Global Journey
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="group bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide flex items-center justify-center transform hover:-translate-y-1"
+              >
+                Apply for Study Abroad
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-              <button className="group border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/50">
-                Get Premium Assistance
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="group border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/50"
+              >
+                Find Jobs in Europe
               </button>
             </div>
 
             <div className="flex items-center space-x-8 text-sm text-gray-600">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-emerald-500 mr-2" />
-                <span className="font-medium">No Hidden Costs</span>
+                <span className="font-medium">Scholarships Available</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-emerald-500 mr-2" />
-                <span className="font-medium">Direct Employer Connect</span>
+                <span className="font-medium">Work Permit Assistance</span>
               </div>
             </div>
           </div>
@@ -143,6 +152,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <SelectionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

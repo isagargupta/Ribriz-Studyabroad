@@ -14,6 +14,8 @@ import { useState } from 'react'
 const StudyAbroadHero = dynamic(() => import('./components/StudyAbroadHero'), { ssr: false })
 const MediaCoverage = dynamic(() => import('./components/MediaCoverage'), { ssr: false })
 const FeaturedBlogs = dynamic(() => import('./components/FeaturedBlogs'), { ssr: false })
+const MarqueeBlogs = dynamic(() => import('./components/MarqueeBlogs'), { ssr: false })
+const UniversityAdmissions = dynamic(() => import('./components/UniversityAdmissions'), { ssr: false })
 const WhatsAppFloat = dynamic(() => import('./components/WhatsAppFloat'), { ssr: false })
 const SelectionModal = dynamic(() => import('./components/SelectionModal'), { ssr: false })
 
@@ -25,7 +27,8 @@ export default function Home() {
       <Header />
       <StudyAbroadHero />
       <MediaCoverage />
-      <FeaturedBlogs />
+      <UniversityAdmissions />
+      <MarqueeBlogs />
       <VerifiedOpportunities />
       <WhyChooseUs />
       <CountriesWeServe />

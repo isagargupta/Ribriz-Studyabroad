@@ -92,12 +92,12 @@ const Footer = () => {
             <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
               <h4 className="text-xl font-bold mb-6 flex items-center tracking-tight text-gray-900">
                 <MapPin className="h-6 w-6 mr-3 text-blue-600" />
-                Premium Office
+                Main Office
               </h4>
               <p className="text-gray-600 leading-relaxed font-light">
-                Floor No.: 139, Unit 101, Oxford Towers<br />
-                HAL Old Airport Road, Landmark: Dhanalakshmi Aquarium<br />
-                H.A.L II Stage, Bengaluru, Karnataka - 560008
+              UNIT 101, Oxford Tower, 139,<br />
+              HAL Old Airport Rd, Kodihalli,<br />
+              Bengaluru, Karnataka 560008, India
               </p>
             </div>
 
@@ -114,7 +114,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 mr-4 text-emerald-600" />
-                  <span className="font-medium">+48 663378038 (Poland)</span>
+                  <span className="font-medium">+48 453283671 (Poland)</span>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm font-light">
-              © 2024 Ribriz Overseas. All rights reserved. Premium global career solutions.
+              © 2024 Ribriz Overseas. All rights reserved. Premium global college and career solutions.
             </p>
             <div className="flex space-x-8 mt-6 md:mt-0">
               <a href="https://www.linkedin.com/company/ribriz" className="text-gray-500 hover:text-blue-600 transition-colors text-sm flex items-center group font-medium">

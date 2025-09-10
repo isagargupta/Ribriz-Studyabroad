@@ -2,12 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-feature-settings: "rlig" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+  loading: lazy;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Custom Animations */
@@ -104,18 +129,18 @@ body {
 /* Marquee Animation */
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(calc(-280px * 4 - 12rem * 3));
+    transform: translateX(-50%);
   }
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
-.marquee-container:hover .animate-marquee {
+.animate-marquee:hover {
   animation-play-state: paused;
 }
 
