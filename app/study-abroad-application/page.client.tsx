@@ -373,7 +373,7 @@ export default function StudyAbroadForm() {
               <div className="flex items-center space-x-6 text-sm">
                 <div className="flex items-center">
                   <Star className="h-4 w-4 mr-1 text-yellow-500 fill-current" />
-                  {/* <span className="font-semibold text-gray-800">4.7/5 Trustpilot</span> */}
+                  <span className="font-semibold text-gray-800">4.7/5 Trustpilot</span>
                 </div>
                 <div className="flex items-center">
                   <Star className="h-4 w-4 mr-1 text-yellow-500 fill-current" />
@@ -622,6 +622,15 @@ export default function StudyAbroadForm() {
                       <option value="Pune">Pune</option>
                       <option value="Kolkata">Kolkata</option>
                       <option value="Ahmedabad">Ahmedabad</option>
+                      <option value="Jaipur">Jaipur</option>
+                      <option value="Lucknow">Lucknow</option>
+                      <option value="Noida">Noida</option>
+                      <option value="Surat">Surat</option>
+                      <option value="Vadodara">Vadodara</option>
+                      <option value="Vijayawada">Vijayawada</option>
+                      <option value="Visakhapatnam">Visakhapatnam</option>
+                      <option value="Warangal">Warangal</option>
+                      <option value="Zirakpur">Zirakpur</option>
                       <option value="Other">Other</option>
                     </select>
                     {errors.location && (

@@ -16,7 +16,7 @@ const WhatsAppFloat = () => {
   }
 
   const whatsappNumbers = [
-    { number: '+48663378038', country: 'Poland', flag: '🇵🇱', label: 'Europe Support' },
+    { number: '+48453283671', country: 'Poland', flag: '🇵🇱', label: 'Europe Support' },
     { number: '+918076823071', country: 'India', flag: '🇮🇳', label: 'India Support' },
     { number: '+48793917254', country: 'Poland', flag: '🇵🇱', label: 'Premium Line' },
     { number: '+15557191438', country: 'USA', flag: '🇺🇸', label: 'Americas Support' }
