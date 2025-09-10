@@ -4,12 +4,25 @@ import React, { useState, useRef } from 'react'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
 
+// Types
+type UploadKind = 'cv' | 'coverLetter';
+type FileKey = 'cvFile' | 'coverLetterFile';
+type FormFieldKey = 'country' | 'jobCategory' | 'fullName' | 'email' | 'phone' | FileKey;
+type FormErrors = Record<FormFieldKey, string | null>;
+type UploadProgress = Record<UploadKind, number>;
+
+const keyFromKind = (kind: UploadKind): FileKey =>
+  kind === 'cv' ? 'cvFile' : 'coverLetterFile';
+
 export default function CareerApplicationForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [countdown, setCountdown] = useState(5)
-  const [uploadProgress, setUploadProgress] = useState({ cv: 0, coverLetter: 0 })
+  const [uploadProgress, setUploadProgress] = useState<UploadProgress>({
+    cv: 0,
+    coverLetter: 0,
+  })
   const [formData, setFormData] = useState({
     country: '',
     jobCategory: '',
@@ -20,7 +33,15 @@ export default function CareerApplicationForm() {
     cvFile: null as File | null,
     coverLetterFile: null as File | null
   })
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState<FormErrors>({
+    country: null,
+    jobCategory: null,
+    fullName: null,
+    email: null,
+    phone: null,
+    cvFile: null,
+    coverLetterFile: null,
+  })
   const [fileErrors, setFileErrors] = useState({ cv: '', coverLetter: '' })
 
   const cvInputRef = useRef<HTMLInputElement>(null)
@@ -86,7 +107,7 @@ export default function CareerApplicationForm() {
     return Object.keys(newErrors).length === 0
   }
 
-  const validateFile = (file: File, type: 'cv' | 'coverLetter') => {
+  const validateFile = (file: File, type: UploadKind) => {
     const maxSize = 5 * 1024 * 1024 // 5MB
     const allowedTypes = [
       'application/pdf',
@@ -108,7 +129,7 @@ export default function CareerApplicationForm() {
     return true
   }
 
-  const handleFileUpload = (file: File, type: 'cv' | 'coverLetter') => {
+  const handleFileUpload = (file: File, type: UploadKind) => {
     if (!validateFile(file, type)) return
 
     // Simulate upload progress
@@ -119,13 +140,14 @@ export default function CareerApplicationForm() {
         const newProgress = prev[type] + 10
         if (newProgress >= 100) {
           clearInterval(interval)
+          const fileKey = keyFromKind(type)
           setFormData(prevData => ({ 
             ...prevData, 
-            [type === 'cv' ? 'cvFile' : 'coverLetterFile']: file 
+            [fileKey]: file 
           }))
           // Clear file error when upload is successful
-          if (errors[type === 'cv' ? 'cvFile' : 'coverLetterFile']) {
-            setErrors(prev => ({ ...prev, [type === 'cv' ? 'cvFile' : 'coverLetterFile']: null }))
+          if (errors[fileKey]) {
+            setErrors(prev => ({ ...prev, [fileKey]: null }))
           }
           return { ...prev, [type]: 100 }
         }
@@ -134,10 +156,11 @@ export default function CareerApplicationForm() {
     }, 100)
   }
 
-  const removeFile = (type: 'cv' | 'coverLetter') => {
+  const removeFile = (type: UploadKind) => {
+    const fileKey = keyFromKind(type)
     setFormData(prev => ({ 
       ...prev, 
-      [type === 'cv' ? 'cvFile' : 'coverLetterFile']: null 
+      [fileKey]: null 
     }))
     setUploadProgress(prev => ({ ...prev, [type]: 0 }))
     setFileErrors(prev => ({ ...prev, [type]: '' }))
