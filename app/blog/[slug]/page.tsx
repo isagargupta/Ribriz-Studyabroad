@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -560,6 +558,13 @@ const blogPosts = {
   }
 }
 
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  return Object.keys(blogPosts).map((slug) => ({
+    slug: slug,
+  }))
+}
+
 interface BlogPostPageProps {
   params: {
     slug: string
@@ -576,13 +581,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = Object.values(blogPosts)
     .filter(p => p.id !== post.id)
     .slice(0, 3)
-
-  // Set document title and meta for SEO
-  React.useEffect(() => {
-    if (typeof document !== 'undefined') {
-      document.title = `${post.title} | Ribriz Overseas Blog`
-    }
-  }, [post.title])
 
   return (
     <>
