@@ -56,7 +56,7 @@ export default function CareerApplicationForm() {
     { value: 'czech-republic', label: '🇨🇿 Czech Republic' },
     { value: 'lithuania', label: '🇱🇹 Lithuania' },
     { value: 'slovakia', label: '🇸🇰 Slovakia' },
-    { value: 'hungary', label: '🇭🇺 Hungary' '(Most Popular)' },
+    { value: 'hungary', label: '🇭🇺 Hungary'},
     { value: 'other-eu', label: '🇪🇺 Other EU Country' }
   ]
 
