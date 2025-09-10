@@ -7,6 +7,11 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import WhatsAppFloat from '../../components/WhatsAppFloat'
 
+
+export const dynamic = 'error'       // no dynamic rendering
+export const dynamicParams = false   // only params returned below are valid
+
+
 // This would typically come from a CMS or database
 const blogPosts = {
   'top-10-countries-study-abroad-indian-students-2025': {

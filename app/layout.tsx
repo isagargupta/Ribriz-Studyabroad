@@ -8,10 +8,14 @@ export const metadata = {
   title: 'Ribriz Overseas - Premium Global Career Solutions',
   description: 'Where Ambition Meets Opportunity - Premium international career placement services',
   metadataBase: new URL('https://ribriz.com'),
-  viewport: 'width=device-width, initial-scale=1',
   alternates: {
     canonical: 'https://ribriz.com',
   },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({

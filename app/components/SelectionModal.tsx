@@ -49,9 +49,9 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
 
   const handleRedirect = () => {
     if (selectedOption === 'study') {
-      router.push('/study-abroad/')
+      router.push('/study-abroad-application')
     } else if (selectedOption === 'job') {
-      router.push('/career-application/')
+      router.push('/career-application')
     }
     onClose()
     resetModal()
