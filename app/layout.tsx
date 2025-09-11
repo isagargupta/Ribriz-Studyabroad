@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import BrowserGuard from './_client/BrowserGuard'
 import PerformanceMonitor from './components/PerformanceMonitor'
+import FacebookPixel from './components/FacebookPixel'
 
 // Optimize font loading
 const inter = Inter({ 
@@ -154,6 +155,7 @@ export default function RootLayout({
         <BrowserGuard>
           {children}
           <PerformanceMonitor />
+          <FacebookPixel pixelId="1940844370107502" />
         </BrowserGuard>
       </body>
     </html>

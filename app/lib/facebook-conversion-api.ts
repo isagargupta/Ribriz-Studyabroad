@@ -1,5 +1,5 @@
 // Facebook Conversion API Integration
-// Using your specific access token and payload structure
+// Using your specific access token and pixel ID
 
 interface FacebookConversionEvent {
   event_name: string
@@ -46,14 +46,8 @@ interface FacebookConversionResponse {
 
 class FacebookConversionAPI {
   private accessToken: string = 'EAARwkkqcZBPIBPdTS5QdzeFYcMcFVZCiKvFuuUJwqfHlSiKp8CSDlqvcujKT7ZAXMLXqq3X00mfTgwJNrfB2PvKHZC2UXzES4cwjZCZCPxtvCMzvKqmvYtzuXO4uptcAvH3wD97cO1UG8m1GbrR6uvbNnlp4lGyfcLL8xDnzDru4Omh6P94HZApVswp0IRRBAZDZD'
-  private pixelId: string = 'YOUR_PIXEL_ID' // You'll need to provide this
+  private pixelId: string = '1940844370107502' // Your actual pixel ID
   private apiVersion: string = 'v18.0'
-
-  constructor(pixelId?: string) {
-    if (pixelId) {
-      this.pixelId = pixelId
-    }
-  }
 
   // Hash data for privacy (SHA-256)
   private async hashData(data: string): Promise<string> {

@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getFacebookIds } from '../components/FacebookPixel'
+import { getFacebookIds, trackEvent } from '../components/FacebookPixel'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -221,6 +221,15 @@ export default function CareerApplicationForm() {
         // Track Facebook conversion after successful form submission
         const { fbc, fbp } = getFacebookIds()
         
+        // Track on client side (Facebook Pixel)
+        trackEvent('Lead', {
+          content_name: 'Career Application',
+          content_category: 'Employment',
+          value: 25000,
+          currency: 'INR'
+        })
+        
+        // Track on server side (Conversion API)
         try {
           await fetch('/api/facebook-conversion', {
             method: 'POST',
