@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import BrowserGuard from './_client/BrowserGuard'
 import PerformanceMonitor from './components/PerformanceMonitor'
 import FacebookPixel from './components/FacebookPixel'
-import GoogleAnalytics from './components/GoogleAnalytics'
 
 // Optimize font loading
 const inter = Inter({ 
@@ -145,6 +144,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17410013108"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17410013108');
+            `
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -157,7 +168,6 @@ export default function RootLayout({
           {children}
           <PerformanceMonitor />
           <FacebookPixel pixelId="3285111401638253" />
-          <GoogleAnalytics measurementId="AW-17410013108" />
         </BrowserGuard>
       </body>
     </html>

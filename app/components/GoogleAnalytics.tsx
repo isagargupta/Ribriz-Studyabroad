@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
-
 declare global {
   interface Window {
     dataLayer: any[]
@@ -9,41 +7,9 @@ declare global {
   }
 }
 
-interface GoogleAnalyticsProps {
-  measurementId: string
-}
-
-export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
-  useEffect(() => {
-    // Load Google Analytics script
-    const script1 = document.createElement('script')
-    script1.async = true
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
-    document.head.appendChild(script1)
-
-    // Initialize gtag
-    const script2 = document.createElement('script')
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${measurementId}');
-    `
-    document.head.appendChild(script2)
-
-    // Initialize gtag function
-    window.gtag = window.gtag || function(...args: any[]) {
-      window.dataLayer = window.dataLayer || []
-      window.dataLayer.push(args)
-    }
-
-    return () => {
-      // Cleanup
-      const scripts = document.querySelectorAll(`script[src*="gtag/js?id=${measurementId}"]`)
-      scripts.forEach(script => script.remove())
-    }
-  }, [measurementId])
-
+// Google Analytics is now loaded manually in layout.tsx
+// This component is kept for backward compatibility and helper functions
+export default function GoogleAnalytics() {
   return null
 }
 
