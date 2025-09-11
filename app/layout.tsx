@@ -155,7 +155,7 @@ export default function RootLayout({
         <BrowserGuard>
           {children}
           <PerformanceMonitor />
-          <FacebookPixel pixelId="1940844370107502" />
+          <FacebookPixel pixelId="3285111401638253" />
         </BrowserGuard>
       </body>
     </html>

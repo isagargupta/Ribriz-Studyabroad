@@ -46,7 +46,7 @@ interface FacebookConversionResponse {
 
 class FacebookConversionAPI {
   private accessToken: string = 'EAARwkkqcZBPIBPdTS5QdzeFYcMcFVZCiKvFuuUJwqfHlSiKp8CSDlqvcujKT7ZAXMLXqq3X00mfTgwJNrfB2PvKHZC2UXzES4cwjZCZCPxtvCMzvKqmvYtzuXO4uptcAvH3wD97cO1UG8m1GbrR6uvbNnlp4lGyfcLL8xDnzDru4Omh6P94HZApVswp0IRRBAZDZD'
-  private pixelId: string = '1940844370107502' // Your actual pixel ID
+  private pixelId: string = '3285111401638253' // Your new pixel ID
   private apiVersion: string = 'v18.0'
 
   // Hash data for privacy (SHA-256)
