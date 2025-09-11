@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getFacebookIds } from '../components/FacebookPixel'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -217,6 +218,36 @@ export default function CareerApplicationForm() {
       })
 
       if (response.ok) {
+        // Track Facebook conversion after successful form submission
+        const { fbc, fbp } = getFacebookIds()
+        
+        try {
+          await fetch('/api/facebook-conversion', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              eventType: 'form_submission',
+              userData: {
+                email: formData.email,
+                phone: formData.phone,
+                fullName: formData.fullName,
+                country: formData.country,
+                fbc,
+                fbp
+              },
+              customData: {
+                formType: 'career_application'
+              }
+            })
+          })
+          console.log('Facebook conversion tracked successfully')
+        } catch (fbError) {
+          console.error('Facebook conversion tracking failed:', fbError)
+          // Don't fail the form submission if Facebook tracking fails
+        }
+        
         setCurrentStep(3)
         setIsSubmitted(true)
         
