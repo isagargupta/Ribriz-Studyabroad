@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { ArrowRight, ChevronLeft, Star, Globe, GraduationCap, BookOpen, Award, Sparkles, TrendingUp, User, Mail, Phone, MapPin, CheckCircle, Calendar, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { trackEvent, trackConversion } from '../components/GoogleAnalytics'
 
 export default function StudyAbroadForm() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -145,6 +146,17 @@ export default function StudyAbroadForm() {
       })
 
       if (response.ok) {
+        // Track Google Analytics conversion
+        trackConversion('AW-17410013108', 'STUDY_ABROAD_APPLICATION', 50000, 'INR')
+
+        // Track Google Analytics event
+        trackEvent('form_submit', {
+          event_category: 'Study Abroad Application',
+          event_label: 'Study Abroad Form',
+          value: 50000,
+          currency: 'INR'
+        })
+
         setIsSubmitted(true)
       } else {
         throw new Error('Form submission failed')

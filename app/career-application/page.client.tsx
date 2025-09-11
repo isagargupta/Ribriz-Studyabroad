@@ -5,6 +5,7 @@ import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User
 import Link from 'next/link'
 import Image from 'next/image'
 import { getFacebookIds, trackEvent } from '../components/FacebookPixel'
+import { trackEvent, trackConversion } from '../components/GoogleAnalytics'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -218,6 +219,17 @@ export default function CareerApplicationForm() {
       })
 
       if (response.ok) {
+        // Track Google Analytics conversion
+        trackConversion('AW-17410013108', 'CAREER_APPLICATION', 25000, 'INR')
+        
+        // Track Google Analytics event
+        trackEvent('form_submit', {
+          event_category: 'Career Application',
+          event_label: 'Job Application Form',
+          value: 25000,
+          currency: 'INR'
+        })
+        
         // Track Facebook conversion after successful form submission
         const { fbc, fbp } = getFacebookIds()
         
