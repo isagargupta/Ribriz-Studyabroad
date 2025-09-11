@@ -4,8 +4,8 @@ import React, { useState, useRef } from 'react'
 import { ArrowRight, ChevronLeft, Upload, X, CheckCircle, Globe, Briefcase, User, Mail, Phone, FileText, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getFacebookIds, trackEvent } from '../components/FacebookPixel'
-import { trackEvent, trackConversion } from '../components/GoogleAnalytics'
+import { getFacebookIds, trackEvent as trackFacebookEvent } from '../components/FacebookPixel'
+import { trackEvent, trackConversion, trackContactConversion } from '../components/GoogleAnalytics'
 
 // Types
 type UploadKind = 'cv' | 'coverLetter';
@@ -222,6 +222,14 @@ export default function CareerApplicationForm() {
         // Track Google Analytics conversion
         trackConversion('AW-17410013108', 'CAREER_APPLICATION', 25000, 'INR')
         
+        // Track contact conversion
+        trackContactConversion({
+          event_category: 'Career Application',
+          event_label: 'Job Application Form',
+          value: 25000,
+          currency: 'INR'
+        })
+        
         // Track Google Analytics event
         trackEvent('form_submit', {
           event_category: 'Career Application',
@@ -234,7 +242,7 @@ export default function CareerApplicationForm() {
         const { fbc, fbp } = getFacebookIds()
         
         // Track on client side (Facebook Pixel)
-        trackEvent('Lead', {
+        trackFacebookEvent('Lead', {
           content_name: 'Career Application',
           content_category: 'Employment',
           value: 25000,

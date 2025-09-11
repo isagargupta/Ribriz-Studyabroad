@@ -38,3 +38,13 @@ export const trackPageView = (pagePath: string, pageTitle?: string) => {
     })
   }
 }
+
+// Track contact conversion event
+export const trackContactConversion = (eventParameters?: any) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'ads_conversion_Contact_1', {
+      // <event_parameters>
+      ...eventParameters
+    })
+  }
+}

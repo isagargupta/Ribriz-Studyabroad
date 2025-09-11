@@ -1,13 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Clock, MessageCircle, Send, Globe, Award } from 'lucide-react';
+import { trackContactConversion } from './GoogleAnalytics';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const contactNumbers = [
     { number: '+48 453283281', country: 'Poland', flag: '🇵🇱' },
     { number: '+91 8076823071', country: 'India', flag: '🇮🇳' },
     { number: '+48 793917254', country: 'Poland', flag: '🇵🇱' },
     { number: '+1 555 719 1438', country: 'USA', flag: '🇺🇸' }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Track contact conversion
+      trackContactConversion({
+        event_category: 'Contact Form',
+        event_label: 'Contact Form Submission',
+        value: 1,
+        currency: 'INR'
+      });
+
+      // Here you would typically send the form data to your backend
+      // For now, we'll just simulate a successful submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting your form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-32 bg-gradient-to-b from-white to-slate-50/50 relative overflow-hidden">
@@ -128,84 +174,137 @@ const Contact = () => {
             <div className="relative">
               <h3 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">Contact Form</h3>
               
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Send className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully!</h3>
+                  <p className="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                  <button
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        phone: '',
+                        service: '',
+                        message: ''
+                      });
+                    }}
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                        placeholder="Enter your first name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                        placeholder="Enter your last name"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                      First Name
+                      Email Address
                     </label>
                     <input
-                      type="text"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
-                      placeholder="Enter your first name"
+                      placeholder="Enter your email"
                     />
                   </div>
+
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                      Last Name
+                      Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
-                      placeholder="Enter your last name"
+                      placeholder="Enter your phone number"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
-                    placeholder="Enter your email"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                      Service Interest
+                    </label>
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                    >
+                      <option value="">Select a premium service</option>
+                      <option value="International Jobs">International Jobs</option>
+                      <option value="Premium Internships">Premium Internships</option>
+                      <option value="Study Abroad">Study Abroad</option>
+                      <option value="Executive Placement">Executive Placement</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm resize-none shadow-sm"
+                      placeholder="Tell us about your international career goals..."
+                    ></textarea>
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                    Service Interest
-                  </label>
-                  <select className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm">
-                    <option>Select a premium service</option>
-                    <option>International Jobs</option>
-                    <option>Premium Internships</option>
-                    <option>Study Abroad</option>
-                    <option>Executive Placement</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm resize-none shadow-sm"
-                    placeholder="Tell us about your international career goals..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-4 px-6 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
-                >
-                  Send Message
-                  <Send className="ml-3 h-5 w-5" />
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-4 px-6 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide shadow-xl transform hover:-translate-y-1 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    <Send className="ml-3 h-5 w-5" />
+                  </button>
+                </form>
+              )}
 
               <div className="mt-10 pt-8 border-t border-gray-200/50">
                 <div className="text-center">
