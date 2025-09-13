@@ -36,8 +36,22 @@ export const metadata = {
     canonical: 'https://ribriz.com',
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: 'any', type: 'image/png' },
+    ],
+    shortcut: '/favicon-16x16.png',
+    apple: [
+      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/logo.svg',
+        color: '#2563eb',
+      },
+    ],
   },
   openGraph: {
     type: 'website',
@@ -183,6 +197,24 @@ export default function RootLayout({
             `
           }}
         />
+        {/* Comprehensive Favicon Setup - Force favicon-16x16.png */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="any" href="/favicon-16x16.png?v=2" />
+        <link rel="shortcut icon" type="image/png" href="/favicon-16x16.png?v=2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon" />
+        <link rel="mask-icon" href="/logo.svg" color="#2563eb" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="msapplication-TileImage" content="/logo.png" />
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Ribriz Overseas" />
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
+        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
