@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Clock, MessageCircle, Send, Globe, Award } from 'lucide-react';
-import { trackContactConversion } from './GoogleAnalytics';
+import { trackContactConversion, trackContactConversionWithNavigation } from './GoogleAnalytics';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -181,22 +181,38 @@ const Contact = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully!</h3>
                   <p className="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                  <button
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        phone: '',
-                        service: '',
-                        message: ''
-                      });
-                    }}
-                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
-                  >
-                    Send Another Message
-                  </button>
+                  <div className="space-y-4">
+                    <button
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setFormData({
+                          firstName: '',
+                          lastName: '',
+                          email: '',
+                          phone: '',
+                          service: '',
+                          message: ''
+                        });
+                      }}
+                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                    >
+                      Send Another Message
+                    </button>
+                    
+                    <button
+                      onClick={() => {
+                        trackContactConversionWithNavigation('/study-abroad', {
+                          event_category: 'Contact Form',
+                          event_label: 'Redirect to Study Abroad',
+                          value: 1,
+                          currency: 'INR'
+                        });
+                      }}
+                      className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                    >
+                      Explore Study Abroad Options
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -309,7 +325,16 @@ const Contact = () => {
               <div className="mt-10 pt-8 border-t border-gray-200/50">
                 <div className="text-center">
                   <p className="text-gray-600 mb-6 text-lg font-light">Prefer instant messaging?</p>
-                  <button className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-green-500/25 transition-all duration-500 font-semibold shadow-lg transform hover:-translate-y-1">
+                  <button 
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && window.gtagSendEvent) {
+                        window.gtagSendEvent('https://wa.me/918076823071');
+                      } else {
+                        window.open('https://wa.me/918076823071', '_blank');
+                      }
+                    }}
+                    className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-green-500/25 transition-all duration-500 font-semibold shadow-lg transform hover:-translate-y-1"
+                  >
                     <MessageCircle className="h-5 w-5 mr-3" />
                     WhatsApp Support
                   </button>

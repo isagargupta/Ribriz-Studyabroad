@@ -4,6 +4,8 @@ declare global {
   interface Window {
     dataLayer: any[]
     gtag: (...args: any[]) => void
+    gtagSendEvent: (url: string) => boolean
+    contactConversionParams?: any
   }
 }
 
@@ -47,4 +49,16 @@ export const trackContactConversion = (eventParameters?: any) => {
       ...eventParameters
     })
   }
+}
+
+// Helper function to track contact conversion with delayed navigation
+export const trackContactConversionWithNavigation = (url: string, eventParameters?: any) => {
+  if (typeof window !== 'undefined' && window.gtagSendEvent) {
+    // Store event parameters globally for the gtagSendEvent function
+    if (eventParameters) {
+      window.contactConversionParams = eventParameters
+    }
+    return window.gtagSendEvent(url)
+  }
+  return false
 }

@@ -156,6 +156,33 @@ export default function RootLayout({
             `
           }}
         />
+        {/* Google tag (gtag.js) event - delayed navigation helper */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Helper function to delay opening a URL until a gtag event is sent.
+              // Call it in response to an action that should navigate to a URL.
+              function gtagSendEvent(url) {
+                var callback = function () {
+                  if (typeof url === 'string') {
+                    window.location = url;
+                  }
+                };
+                
+                // Get stored event parameters if available
+                var eventParams = window.contactConversionParams || {};
+                
+                gtag('event', 'ads_conversion_Contact_1', {
+                  'event_callback': callback,
+                  'event_timeout': 2000,
+                  // <event_parameters>
+                  ...eventParams
+                });
+                return false;
+              }
+            `
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
