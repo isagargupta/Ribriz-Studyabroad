@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Clock, MessageCircle, Send, Globe, Award } from 'lucide-react';
 import { trackContactConversion, trackContactConversionWithNavigation } from './GoogleAnalytics';
@@ -56,21 +58,21 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-gradient-to-b from-white to-slate-50/50 relative overflow-hidden">
+    <section id="contact" className="py-32 bg-white relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-indigo-400/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/5 to-blue-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gray-50/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-xl rounded-full border border-gray-200/50 shadow-lg shadow-gray-900/5 mb-8">
-            <MessageCircle className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm font-semibold text-gray-800 tracking-wide">Get In Touch</span>
+          <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
+            <MessageCircle className="h-4 w-4 mr-2 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700 tracking-wide">Get In Touch</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-            Ready to Start Your
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block">
+            <span className="elegant-text">Ready to Start Your</span>
+            <span className="text-blue-900 block">
               Premium Journey?
             </span>
           </h2>
@@ -81,13 +83,13 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-gray-100/50 shadow-gray-900/5">
+            <div className="minimal-card rounded-2xl p-8">
               <div className="flex items-start space-x-6 mb-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                  <MapPin className="h-7 w-7 text-white" />
+                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center refined-shadow">
+                  <MapPin className="h-7 w-7 text-gray-600" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-xl mb-3 tracking-tight">Main Office</h4>
+                  <h4 className="font-bold text-gray-900 text-xl mb-3 tracking-tight elegant-text">Main Office</h4>
                   <p className="text-gray-600 leading-relaxed font-light">
                   UNIT 101, Oxford Tower, 139, <br /> 
                   HAL Old Airport Rd, Kodihalli, <br />
@@ -97,20 +99,20 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-gray-100/50 shadow-gray-900/5">
+            <div className="minimal-card rounded-2xl p-8">
               <div className="flex items-start space-x-6 mb-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
-                  <Mail className="h-7 w-7 text-white" />
+                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center refined-shadow">
+                  <Mail className="h-7 w-7 text-gray-600" />
                 </div>
                 <div className="w-full">
-                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight">Email Addresses</h4>
+                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight elegant-text">Email Addresses</h4>
                   <div className="space-y-3">
-                    <div className="flex items-center p-4 bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl border border-gray-100/50">
-                      <Globe className="h-5 w-5 text-blue-600 mr-4" />
+                    <div className="flex items-center p-4 minimal-border rounded-xl">
+                      <Globe className="h-5 w-5 text-gray-600 mr-4" />
                       <span className="text-gray-800 font-medium">hello@ribriz.com</span>
                     </div>
-                    <div className="flex items-center p-4 bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl border border-gray-100/50">
-                      <Globe className="h-5 w-5 text-blue-600 mr-4" />
+                    <div className="flex items-center p-4 minimal-border rounded-xl">
+                      <Globe className="h-5 w-5 text-gray-600 mr-4" />
                       <span className="text-gray-800 font-medium">sguta@ribriz.com</span>
                     </div>
                   </div>
@@ -118,21 +120,21 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-gray-100/50 shadow-gray-900/5">
+            <div className="minimal-card rounded-2xl p-8">
               <div className="flex items-start space-x-6 mb-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-3xl flex items-center justify-center shadow-lg shadow-green-500/25">
-                  <Phone className="h-7 w-7 text-white" />
+                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center refined-shadow">
+                  <Phone className="h-7 w-7 text-gray-600" />
                 </div>
                 <div className="w-full">
-                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight">WhatsApp Support</h4>
+                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight elegant-text">WhatsApp Support</h4>
                   <div className="grid gap-3">
                     {contactNumbers.map((contact, index) => (
-                      <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50/80 to-emerald-50/80 rounded-2xl border border-green-100/50 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
+                      <div key={index} className="flex items-center justify-between p-4 minimal-border rounded-xl hover:bg-gray-50 subtle-hover">
                         <div className="flex items-center space-x-4">
                           <span className="text-2xl">{contact.flag}</span>
                           <span className="text-gray-800 font-semibold">{contact.number}</span>
                         </div>
-                        <span className="text-sm text-green-700 font-bold px-4 py-2 bg-green-100 rounded-full">
+                        <span className="text-sm text-gray-700 font-medium px-4 py-2 bg-gray-100 rounded-full">
                           {contact.country}
                         </span>
                       </div>
@@ -142,25 +144,25 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 text-white shadow-2xl shadow-gray-900/25">
+            <div className="minimal-card rounded-2xl p-8">
               <div className="flex items-start space-x-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl flex items-center justify-center shadow-lg shadow-purple-500/25">
-                  <Clock className="h-7 w-7 text-white" />
+                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center refined-shadow">
+                  <Clock className="h-7 w-7 text-gray-600" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-xl mb-4 tracking-tight">Business Hours</h4>
-                  <div className="space-y-3 text-gray-300">
+                  <h4 className="font-bold text-gray-900 text-xl mb-4 tracking-tight elegant-text">Business Hours</h4>
+                  <div className="space-y-3 text-gray-600">
                     <p className="flex justify-between">
                       <span>Monday - Friday:</span>
-                      <span className="font-semibold text-white">9:00 AM - 6:00 PM (IST)</span>
+                      <span className="font-semibold text-gray-900">9:00 AM - 6:00 PM (IST)</span>
                     </p>
                     <p className="flex justify-between">
                       <span>Saturday:</span>
-                      <span className="font-semibold text-white">10:00 AM - 4:00 PM (IST)</span>
+                      <span className="font-semibold text-gray-900">10:00 AM - 4:00 PM (IST)</span>
                     </p>
                     <p className="flex justify-between">
                       <span>Sunday:</span>
-                      <span className="font-semibold text-red-400">Closed</span>
+                      <span className="font-semibold text-gray-500">Closed</span>
                     </p>
                   </div>
                 </div>
@@ -168,11 +170,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-10 shadow-2xl border border-gray-100/50 relative overflow-hidden shadow-gray-900/10">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-indigo-50/30"></div>
-            
+          <div className="minimal-card rounded-2xl p-10">
             <div className="relative">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">Contact Form</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight elegant-text">Contact Form</h3>
               
               {isSubmitted ? (
                 <div className="text-center py-12">
@@ -194,7 +194,7 @@ const Contact = () => {
                           message: ''
                         });
                       }}
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                      className="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 subtle-hover font-medium"
                     >
                       Send Another Message
                     </button>
@@ -208,7 +208,7 @@ const Contact = () => {
                           currency: 'INR'
                         });
                       }}
-                      className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
+                      className="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 subtle-hover font-medium"
                     >
                       Explore Study Abroad Options
                     </button>
@@ -218,7 +218,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                      <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                         First Name
                       </label>
                       <input
@@ -227,12 +227,12 @@ const Contact = () => {
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                        className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover"
                         placeholder="Enter your first name"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                      <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                         Last Name
                       </label>
                       <input
@@ -241,14 +241,14 @@ const Contact = () => {
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                        className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover"
                         placeholder="Enter your last name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                    <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                       Email Address
                     </label>
                     <input
@@ -257,13 +257,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover"
                       placeholder="Enter your email"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                    <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                       Phone Number
                     </label>
                     <input
@@ -272,13 +272,13 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover"
                       placeholder="Enter your phone number"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                    <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                       Service Interest
                     </label>
                     <select 
@@ -286,7 +286,7 @@ const Contact = () => {
                       value={formData.service}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm shadow-sm"
+                      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover"
                     >
                       <option value="">Select a premium service</option>
                       <option value="International Jobs">International Jobs</option>
@@ -297,7 +297,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3 tracking-wide">
+                    <label className="block text-sm font-medium text-gray-700 mb-3 tracking-wide">
                       Message
                     </label>
                     <textarea
@@ -306,7 +306,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={4}
-                      className="w-full px-5 py-4 border border-gray-200/50 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/70 backdrop-blur-sm resize-none shadow-sm"
+                      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-300 focus:border-gray-400 transition-all duration-300 bg-white subtle-hover resize-none"
                       placeholder="Tell us about your international career goals..."
                     ></textarea>
                   </div>
@@ -314,7 +314,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-4 px-6 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide shadow-xl transform hover:-translate-y-1 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-blue-900 text-white py-4 px-6 rounded-lg hover:bg-blue-800 subtle-hover font-medium text-lg tracking-wide elegant-shadow flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Send className="ml-3 h-5 w-5" />
@@ -322,7 +322,7 @@ const Contact = () => {
                 </form>
               )}
 
-              <div className="mt-10 pt-8 border-t border-gray-200/50">
+              <div className="mt-10 pt-8 border-t border-gray-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-6 text-lg font-light">Prefer instant messaging?</p>
                   <button 
@@ -333,7 +333,7 @@ const Contact = () => {
                         window.open('https://wa.me/918076823071', '_blank');
                       }
                     }}
-                    className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-green-500/25 transition-all duration-500 font-semibold shadow-lg transform hover:-translate-y-1"
+                    className="inline-flex items-center bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 subtle-hover font-medium elegant-shadow"
                   >
                     <MessageCircle className="h-5 w-5 mr-3" />
                     WhatsApp Support
@@ -344,28 +344,25 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="mt-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl shadow-gray-900/25">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-          <div className="relative text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-              <Award className="h-4 w-4 mr-2 text-yellow-400" />
-              <span className="text-sm font-semibold text-yellow-200 tracking-wide">Credentials</span>
+        <div className="mt-20 minimal-card rounded-2xl p-12 text-center">
+          <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
+            <Award className="h-4 w-4 mr-2 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700 tracking-wide">Credentials</span>
+          </div>
+          <h3 className="text-3xl font-bold mb-8 tracking-tight text-gray-900 elegant-text">Trusted & Certified Excellence</h3>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-6 minimal-card rounded-xl">
+              <div className="font-bold text-lg mb-2 text-gray-900">CIN Number</div>
+              <div className="text-gray-600 text-sm font-mono">U85499KA2024PTC187740</div>
             </div>
-            <h3 className="text-3xl font-bold mb-8 tracking-tight">Trusted & Certified Excellence</h3>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                <div className="font-bold text-lg mb-2 text-white">CIN Number</div>
-                <div className="text-gray-300 text-sm font-mono">U85499KA2024PTC187740</div>
-              </div>
-              <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                <div className="font-bold text-lg mb-2 text-white">GST Number</div>
-                <div className="text-gray-300 text-sm font-mono">29AANCR5772Q1Z6</div>
-              </div>
-              <div className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                <div className="font-bold text-lg mb-2 text-white">Certification</div>
-                <div className="text-yellow-300 text-sm font-semibold">Startup India Certified</div>
-              </div>
+            <div className="p-6 minimal-card rounded-xl">
+              <div className="font-bold text-lg mb-2 text-gray-900">GST Number</div>
+              <div className="text-gray-600 text-sm font-mono">29AANCR5772Q1Z6</div>
+            </div>
+            <div className="p-6 minimal-card rounded-xl">
+              <div className="font-bold text-lg mb-2 text-gray-900">Certification</div>
+              <div className="text-gray-700 text-sm font-semibold">Startup India Certified</div>
             </div>
           </div>
         </div>

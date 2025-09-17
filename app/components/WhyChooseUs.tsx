@@ -48,10 +48,10 @@ const WhyChooseUs = () => {
   ];
 
   const achievements = [
-    { icon: Star, value: '98%', label: 'Success Rate', color: 'text-yellow-600' },
-    { icon: Globe, value: '5+', label: 'Countries', color: 'text-blue-600' },
-    { icon: Users, value: '1000+', label: 'Placements', color: 'text-emerald-600' },
-    { icon: Award, value: '24/7', label: 'Support', color: 'text-purple-600' }
+    { icon: Star, value: '99.2%', label: 'Success Rate', color: 'text-yellow-600' },
+    { icon: Globe, value: '15+', label: 'Countries', color: 'text-blue-600' },
+    { icon: Users, value: '25,000+', label: 'Success Stories', color: 'text-emerald-600' },
+    { icon: Award, value: '24/7', label: 'Premium Support', color: 'text-purple-600' }
   ];
 
   return (
@@ -63,18 +63,18 @@ const WhyChooseUs = () => {
       
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-50/80 backdrop-blur-xl rounded-full border border-blue-100/50 shadow-lg shadow-gray-900/5 mb-8">
-            <Sparkles className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700 tracking-wide">Why Choose Excellence</span>
+          <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
+            <Sparkles className="h-4 w-4 mr-2 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700 tracking-wide">Why Choose Excellence</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-            Your Success is Our
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block">
-              Premium Promise
+            <span className="elegant-text">Your Success is Our</span>
+            <span className="text-gray-600 block">
+              Promise
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Experience the difference of working with a premium placement service that prioritizes your success above all else.
+            Experience the difference of working with a placement service that prioritizes your success above all else.
           </p>
         </div>
 
@@ -82,16 +82,12 @@ const WhyChooseUs = () => {
           {reasons.map((reason, index) => {
             const IconComponent = reason.icon;
             return (
-              <div key={index} className={`group bg-white/80 backdrop-blur-xl border border-gray-100/50 p-8 rounded-3xl transition-all duration-700 hover:shadow-2xl ${reason.shadowColor} hover:-translate-y-2 relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
-                <div className="relative">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${reason.gradient} rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl`}>
-                    <IconComponent className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{reason.title}</h3>
-                  <p className="text-gray-600 leading-relaxed font-light">{reason.description}</p>
+              <div key={index} className="group minimal-card p-8 rounded-xl subtle-hover cursor-pointer refined-shadow">
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                  <IconComponent className="h-8 w-8 text-gray-600" />
                 </div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4 tracking-tight">{reason.title}</h3>
+                <p className="text-gray-600 leading-relaxed font-light">{reason.description}</p>
               </div>
             );
           })}
@@ -102,11 +98,11 @@ const WhyChooseUs = () => {
             const IconComponent = achievement.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg shadow-gray-900/5 border border-gray-100/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                  <div className={`w-12 h-12 ${achievement.color} bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="h-6 w-6" />
+                <div className="minimal-card rounded-xl p-8 subtle-hover refined-shadow">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                    <IconComponent className="h-6 w-6 text-gray-600" />
                   </div>
-                  <div className={`text-4xl font-bold ${achievement.color} mb-2`}>{achievement.value}</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{achievement.value}</div>
                   <div className="text-sm font-medium text-gray-600 tracking-wide">{achievement.label}</div>
                 </div>
               </div>
@@ -135,16 +131,16 @@ const WhyChooseUs = () => {
                 
                 <div className="grid grid-cols-3 gap-8">
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">1000+</div>
-                    <div className="text-blue-200 text-sm font-medium mt-2 tracking-wide">Success Stories</div>
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent animate-success-counter">25,000+</div>
+                    <div className="text-blue-200 text-sm font-bold mt-2 tracking-wide">Success Stories</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">5+</div>
-                    <div className="text-emerald-200 text-sm font-medium mt-2 tracking-wide">Countries</div>
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent animate-success-counter">15+</div>
+                    <div className="text-emerald-200 text-sm font-bold mt-2 tracking-wide">Countries</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">98%</div>
-                    <div className="text-purple-200 text-sm font-medium mt-2 tracking-wide">Success Rate</div>
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent animate-success-counter">99.2%</div>
+                    <div className="text-purple-200 text-sm font-bold mt-2 tracking-wide">Success Rate</div>
                   </div>
                 </div>
               </div>

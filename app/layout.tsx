@@ -86,9 +86,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // verification: {
+  //   google: 'your-google-verification-code',
+  // },
 }
 
 export const viewport = {

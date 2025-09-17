@@ -1,10 +1,22 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import NavigationLayout from '../components/NavigationLayout'
-import { Briefcase, Users, FileText, GraduationCap, Globe, ArrowRight, CheckCircle, Star } from 'lucide-react'
+import { Briefcase, Users, FileText, GraduationCap, Globe, ArrowRight, CheckCircle, Star, Phone, Mail, MessageCircle } from 'lucide-react'
+import Link from 'next/link'
 
 export default function ServicesPage() {
+  const [selectedService, setSelectedService] = useState<string | null>(null)
+
+  const handleServiceClick = (serviceTitle: string) => {
+    setSelectedService(serviceTitle)
+    // Scroll to contact section or open modal
+    const contactSection = document.getElementById('contact-section')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const services = [
     {
       icon: Briefcase,
@@ -97,12 +109,19 @@ export default function ServicesPage() {
 
   return (
     <NavigationLayout>
-      <div className="p-8">
+      <div className="p-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Our Premium Services
+            <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
+              <Briefcase className="h-4 w-4 mr-2 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700 tracking-wide">Premium Services</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              <span className="elegant-text">Our Premium</span>
+              <span className="text-blue-900 block">
+                Services
+              </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
               Comprehensive international career and education solutions designed to accelerate your global journey with expert guidance and guaranteed results.
@@ -114,36 +133,35 @@ export default function ServicesPage() {
             {services.map((service, index) => {
               const IconComponent = service.icon
               return (
-                <div key={index} className={`group relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-700 p-8 overflow-hidden hover:-translate-y-2`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-                  
-                  <div className="relative">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl`}>
-                      <IconComponent className="h-8 w-8 text-white" />
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{service.title}</h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed font-light">{service.description}</p>
-                      <div className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
-                        {service.price}
-                      </div>
-                    </div>
-
-                    <ul className="space-y-3 mb-8">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-600 font-medium">
-                          <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button className={`w-full bg-gradient-to-r ${service.gradient} text-white py-4 px-6 rounded-2xl transition-all duration-500 font-semibold tracking-wide flex items-center justify-center group-hover:shadow-xl transform group-hover:-translate-y-1`}>
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
+                <div key={index} className="group minimal-card rounded-2xl p-8 subtle-hover refined-shadow">
+                  <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                    <IconComponent className="h-8 w-8 text-gray-600" />
                   </div>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{service.title}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed font-light">{service.description}</p>
+                    <div className="text-xl font-bold text-gray-900 mb-6">
+                      {service.price}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-gray-600 font-medium">
+                        <CheckCircle className="h-5 w-5 text-gray-600 mr-3 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button 
+                    onClick={() => handleServiceClick(service.title)}
+                    className="w-full bg-blue-900 text-white py-4 px-6 rounded-xl hover:bg-blue-800 subtle-hover font-medium tracking-wide flex items-center justify-center elegant-shadow"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
                 </div>
               )
             })}
@@ -152,7 +170,7 @@ export default function ServicesPage() {
           {/* Additional Services */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">Additional Support Services</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight elegant-text">Additional Support Services</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
                 Comprehensive support services to ensure your success at every step of your international journey.
               </p>
@@ -160,9 +178,9 @@ export default function ServicesPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {additionalServices.map((service, index) => (
-                <div key={index} className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-gray-100/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div key={index} className="minimal-card rounded-xl p-6 subtle-hover refined-shadow">
                   <div className="flex items-center mb-4">
-                    <Star className="h-5 w-5 text-yellow-500 mr-2" />
+                    <Star className="h-5 w-5 text-gray-600 mr-2" />
                     <h3 className="font-bold text-gray-900">{service.title}</h3>
                   </div>
                   <p className="text-gray-600 text-sm font-light">{service.description}</p>
@@ -172,36 +190,85 @@ export default function ServicesPage() {
           </div>
 
           {/* Service Process */}
-          <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl shadow-gray-900/25">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-            <div className="relative text-center">
-              <h2 className="text-4xl font-bold mb-6 tracking-tight">Our Service Process</h2>
-              <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto font-light">
+          <div className="minimal-card rounded-2xl p-12 mb-20">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight elegant-text">Our Service Process</h2>
+              <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-light">
                 A streamlined approach to ensure your success from consultation to placement.
               </p>
               
               <div className="grid md:grid-cols-4 gap-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
-                  <h3 className="font-bold text-lg mb-2">Consultation</h3>
-                  <p className="text-gray-300 text-sm">Initial assessment and goal setting</p>
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-900 refined-shadow">1</div>
+                  <h3 className="font-bold text-lg mb-2 text-gray-900">Consultation</h3>
+                  <p className="text-gray-600 text-sm">Initial assessment and goal setting</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
-                  <h3 className="font-bold text-lg mb-2">Preparation</h3>
-                  <p className="text-gray-300 text-sm">Profile optimization and documentation</p>
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-900 refined-shadow">2</div>
+                  <h3 className="font-bold text-lg mb-2 text-gray-900">Preparation</h3>
+                  <p className="text-gray-600 text-sm">Profile optimization and documentation</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
-                  <h3 className="font-bold text-lg mb-2">Application</h3>
-                  <p className="text-gray-300 text-sm">Strategic applications and follow-up</p>
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-900 refined-shadow">3</div>
+                  <h3 className="font-bold text-lg mb-2 text-gray-900">Application</h3>
+                  <p className="text-gray-600 text-sm">Strategic applications and follow-up</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">4</div>
-                  <h3 className="font-bold text-lg mb-2">Success</h3>
-                  <p className="text-gray-300 text-sm">Placement and ongoing support</p>
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-900 refined-shadow">4</div>
+                  <h3 className="font-bold text-lg mb-2 text-gray-900">Success</h3>
+                  <p className="text-gray-600 text-sm">Placement and ongoing support</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div id="contact-section" className="minimal-card rounded-2xl p-12">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight elegant-text">Ready to Get Started?</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+                {selectedService ? `Let's discuss your ${selectedService} needs` : 'Contact our experts to discuss your requirements and get personalized guidance.'}
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <Link 
+                href="tel:+919876543210"
+                className="group minimal-card rounded-xl p-6 text-center subtle-hover refined-shadow"
+              >
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                  <Phone className="h-8 w-8 text-gray-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Call Us</h3>
+                <p className="text-gray-600 text-sm mb-4">Speak directly with our experts</p>
+                <p className="text-blue-900 font-medium">+91 98765 43210</p>
+              </Link>
+
+              <Link 
+                href="mailto:info@ribriz.com"
+                className="group minimal-card rounded-xl p-6 text-center subtle-hover refined-shadow"
+              >
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                  <Mail className="h-8 w-8 text-gray-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Email Us</h3>
+                <p className="text-gray-600 text-sm mb-4">Send us your detailed requirements</p>
+                <p className="text-blue-900 font-medium">info@ribriz.com</p>
+              </Link>
+
+              <Link 
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group minimal-card rounded-xl p-6 text-center subtle-hover refined-shadow"
+              >
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                  <MessageCircle className="h-8 w-8 text-gray-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">WhatsApp</h3>
+                <p className="text-gray-600 text-sm mb-4">Quick chat and instant support</p>
+                <p className="text-blue-900 font-medium">Chat Now</p>
+              </Link>
             </div>
           </div>
         </div>

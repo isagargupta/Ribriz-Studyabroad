@@ -3,7 +3,6 @@
 import React from 'react';
 import Header from '../components/Header';
 import StudyAbroadHero from '../components/StudyAbroadHero';
-import CountriesWeServe from '../components/CountriesWeServe';
 import VerifiedOpportunities from '../components/VerifiedOpportunities';
 import WhyChooseUs from '../components/WhyChooseUs';
 import SuccessStories from '../components/SuccessStories';
@@ -17,7 +16,6 @@ export default function StudyAbroadClient() {
     <div className="min-h-screen bg-white">
       <Header />
       <StudyAbroadHero />
-      <CountriesWeServe />
       <VerifiedOpportunities />
       <WhyChooseUs />
       <SuccessStories />
