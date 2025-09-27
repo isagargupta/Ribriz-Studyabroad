@@ -97,26 +97,26 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
       />
       
       {/* Modal */}
-      <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-gray-200/50 p-8 max-w-2xl w-full mx-4 transform transition-all duration-300 scale-100">
+      <div className="relative bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200/50 p-4 sm:p-6 lg:p-8 max-w-2xl w-full mx-4 transform transition-all duration-300 scale-100">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-6 right-6 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all duration-200"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all duration-200"
         >
-          <X className="h-6 w-6" />
+          <X className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
 
         {!showCountdown ? (
           /* Initial Selection Screen */
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
               Choose Your Path
             </h2>
-            <p className="text-xl text-gray-600 mb-12 font-light">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 font-light">
               Which international opportunity interests you most?
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {/* Study Abroad Option */}
               <button
                 onClick={() => handleOptionSelect('study')}

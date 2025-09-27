@@ -13,17 +13,17 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12">
-            <div className="space-y-8">
+      <div className="relative max-w-7xl mx-auto px-fluid-sm py-fluid-2xl">
+        <div className="grid lg:grid-cols-2 gap-fluid-2xl items-center">
+          <div className="space-y-8 sm:space-y-12">
+            <div className="space-y-6 sm:space-y-8">
               <div className="inline-flex items-center px-4 py-2 bg-white/70 backdrop-blur-xl rounded-full border border-gray-200/50 shadow-lg shadow-gray-900/5">
                 <Award className="h-4 w-4 mr-2 text-amber-600" />
-                <span className="text-sm font-semibold text-gray-800">Startup India Certified</span>
+                <span className="text-fluid-sm font-semibold text-gray-800">Startup India Certified</span>
                 <div className="w-2 h-2 bg-emerald-500 rounded-full ml-3 animate-pulse"></div>
               </div>
               
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
+              <h1 className="text-fluid-6xl sm:text-fluid-7xl lg:text-fluid-8xl font-bold leading-fluid-tight tracking-tight">
                 <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Study Abroad & Jobs
                 </span>
@@ -33,50 +33,50 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light">
+              <p className="text-fluid-lg sm:text-fluid-xl text-gray-600 leading-fluid-relaxed max-w-2xl font-light">
                 Expert guidance for Indian students studying abroad in UK, USA, Australia, Canada, Germany, Poland. 
                 Verified job opportunities in Europe with work permit assistance.
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 py-8">
+            <div className="grid grid-cols-3 gap-fluid-sm py-8">
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">700+</div>
-                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Universities</div>
+                <div className="text-fluid-3xl sm:text-fluid-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">700+</div>
+                <div className="text-fluid-xs font-medium text-gray-500 mt-2 tracking-wide">Universities</div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">15+</div>
-                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Countries</div>
+                <div className="text-fluid-3xl sm:text-fluid-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">15+</div>
+                <div className="text-fluid-xs font-medium text-gray-500 mt-2 tracking-wide">Countries</div>
               </div>
               <div className="text-center group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">5000+</div>
-                <div className="text-sm font-medium text-gray-500 mt-2 tracking-wide">Students</div>
+                <div className="text-fluid-3xl sm:text-fluid-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">5000+</div>
+                <div className="text-fluid-xs font-medium text-gray-500 mt-2 tracking-wide">Students</div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-fluid-md">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="group bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-lg tracking-wide flex items-center justify-center transform hover:-translate-y-1"
+                className="group bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-6 sm:px-8 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 font-semibold text-fluid-base sm:text-fluid-lg tracking-wide flex items-center justify-center transform hover:-translate-y-1 min-h-[44px]"
               >
                 Apply for Study Abroad
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="group border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/50"
+                className="group border-2 border-gray-200 text-gray-700 px-6 sm:px-8 py-4 rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 font-semibold text-fluid-base sm:text-fluid-lg backdrop-blur-sm bg-white/50 min-h-[44px]"
               >
                 Find Jobs in Europe
               </button>
             </div>
 
-            <div className="flex items-center space-x-8 text-sm text-gray-600">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 text-fluid-sm text-gray-600">
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-emerald-500 mr-2" />
+                <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
                 <span className="font-medium">Scholarships Available</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-emerald-500 mr-2" />
+                <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
                 <span className="font-medium">Work Permit Assistance</span>
               </div>
             </div>

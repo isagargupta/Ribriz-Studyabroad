@@ -2,6 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import Header from './components/Header'
+import StudyAbroadHero from './components/StudyAbroadHero'
+import MobileHero from './components/MobileHero'
 // import HomepageSearch from './components/HomepageSearch'
 import WorkInEurope from './components/WorkInEurope'
 import VerifiedOpportunities from './components/VerifiedOpportunities'
@@ -14,7 +16,6 @@ import TestimonialsMarquee from './components/TestimonialsMarquee'
 import { useState } from 'react'
 
 // Components that might cause hydration issues - render client-side only
-const StudyAbroadHero = dynamic(() => import('./components/StudyAbroadHero'), { ssr: false })
 const MediaCoverage = dynamic(() => import('./components/MediaCoverage'), { ssr: false })
 const FeaturedBlogs = dynamic(() => import('./components/FeaturedBlogs'), { ssr: false })
 const MarqueeBlogs = dynamic(() => import('./components/MarqueeBlogs'), { ssr: false })
@@ -26,9 +27,20 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Header />
-      <StudyAbroadHero />
+      <main id="main-content" className="section">
+        {/* Desktop Hero - Hidden on Mobile and Tablet */}
+        <div className="hidden lg:block">
+          <StudyAbroadHero />
+        </div>
+        
+        {/* Mobile Hero - Hidden on Desktop */}
+        <div className="block lg:hidden">
+          <MobileHero />
+        </div>
+        
       {/* <HomepageSearch /> */}
       <WorkInEurope />
       <MediaCoverage />
@@ -103,6 +115,7 @@ export default function Home() {
       </section>
       
       <Contact />
+      </main>
       <Footer />
       <WhatsAppFloat />
       <SelectionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

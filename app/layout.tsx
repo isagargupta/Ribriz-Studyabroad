@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import BrowserGuard from './_client/BrowserGuard'
 import PerformanceMonitor from './components/PerformanceMonitor'
 import FacebookPixel from './components/FacebookPixel'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 // Optimize font loading
 const inter = Inter({ 
@@ -221,12 +222,31 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema)
           }}
         />
+        {/* Mobile Navigation Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('DOMContentLoaded', function() {
+                const t = document.querySelector('.nav-toggle');
+                const m = document.getElementById('mobileMenu');
+                if (t && m) {
+                  t.addEventListener('click', () => {
+                    const open = t.getAttribute('aria-expanded') === 'true';
+                    t.setAttribute('aria-expanded', String(!open));
+                    m.hidden = open;
+                  });
+                }
+              });
+            `
+          }}
+        />
       </head>
       <body className={inter.className}>
         <BrowserGuard>
           {children}
           <PerformanceMonitor />
           <FacebookPixel pixelId="3285111401638253" />
+          <SpeedInsights />
         </BrowserGuard>
       </body>
     </html>

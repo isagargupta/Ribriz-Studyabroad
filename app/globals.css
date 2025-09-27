@@ -24,12 +24,183 @@ body {
   background-color: #ffffff;
 }
 
+/* Professional Typography Scale */
+.text-fluid-xs {
+  font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.text-fluid-sm {
+  font-size: clamp(0.875rem, 0.75vw + 0.625rem, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.text-fluid-base {
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.text-fluid-lg {
+  font-size: clamp(1.125rem, 1.25vw + 0.75rem, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.25rem, 1.5vw + 0.875rem, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.text-fluid-2xl {
+  font-size: clamp(1.5rem, 2vw + 1rem, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text-fluid-3xl {
+  font-size: clamp(1.875rem, 2.5vw + 1.25rem, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-4xl {
+  font-size: clamp(2.25rem, 3vw + 1.5rem, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.text-fluid-5xl {
+  font-size: clamp(2.5rem, 3.5vw + 1.75rem, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.text-fluid-6xl {
+  font-size: clamp(3rem, 4vw + 2rem, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.text-fluid-7xl {
+  font-size: clamp(3.5rem, 5vw + 2.25rem, 5.25rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.text-fluid-8xl {
+  font-size: clamp(4rem, 6vw + 2.5rem, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+/* Mobile-first line heights */
+.leading-fluid-tight {
+  line-height: clamp(1.1, 0.1vw + 1.05, 1.2);
+}
+
+.leading-fluid-normal {
+  line-height: clamp(1.4, 0.2vw + 1.3, 1.6);
+}
+
+.leading-fluid-relaxed {
+  line-height: clamp(1.5, 0.3vw + 1.4, 1.8);
+}
+
+/* Mobile-first spacing utilities */
+.py-fluid-sm {
+  padding-top: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  padding-bottom: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+.py-fluid-md {
+  padding-top: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+  padding-bottom: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+}
+
+.py-fluid-lg {
+  padding-top: clamp(2rem, 4vw + 1.5rem, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw + 1.5rem, 3.5rem);
+}
+
+.py-fluid-xl {
+  padding-top: clamp(2.5rem, 5vw + 2rem, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw + 2rem, 4.5rem);
+}
+
+.py-fluid-2xl {
+  padding-top: clamp(3rem, 6vw + 2.5rem, 5.5rem);
+  padding-bottom: clamp(3rem, 6vw + 2.5rem, 5.5rem);
+}
+
+.px-fluid-sm {
+  padding-left: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  padding-right: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+.px-fluid-md {
+  padding-left: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+  padding-right: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+}
+
+.px-fluid-lg {
+  padding-left: clamp(2rem, 4vw + 1.5rem, 3.5rem);
+  padding-right: clamp(2rem, 4vw + 1.5rem, 3.5rem);
+}
+
+.gap-fluid-sm {
+  gap: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+}
+
+.gap-fluid-md {
+  gap: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+.gap-fluid-lg {
+  gap: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+}
+
+.gap-fluid-xl {
+  gap: clamp(2rem, 4vw + 1.5rem, 3.5rem);
+}
+
+.gap-fluid-2xl {
+  gap: clamp(2.5rem, 5vw + 2rem, 4.5rem);
+}
+
 /* Optimize images */
 img {
   max-width: 100%;
   height: auto;
   loading: lazy;
 }
+
+/* Prevent CLS for images */
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.aspect-ratio-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Common aspect ratios */
+.aspect-square { padding-bottom: 100%; }
+.aspect-video { padding-bottom: 56.25%; } /* 16:9 */
+.aspect-4-3 { padding-bottom: 75%; } /* 4:3 */
+.aspect-3-2 { padding-bottom: 66.67%; } /* 3:2 */
+.aspect-golden { padding-bottom: 61.8%; } /* Golden ratio */
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -214,48 +385,97 @@ img {
   animation: marquee-right 10s linear infinite;
 }
 
-/* Minimal Aesthetic Utility Classes */
+/* Professional Design System */
 .glass-effect {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .elegant-text {
   font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: #111827;
 }
 
-.minimal-card {
+.professional-card {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.professional-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .subtle-hover {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subtle-hover:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.minimal-border {
+.professional-border {
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: rgba(0, 0, 0, 0.02);
 }
 
 .refined-shadow {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .elegant-shadow {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.premium-shadow {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Professional Color Palette */
+.text-primary {
+  color: #1f2937;
+}
+
+.text-secondary {
+  color: #6b7280;
+}
+
+.text-accent {
+  color: #3b82f6;
+}
+
+.bg-primary {
+  background-color: #1f2937;
+}
+
+.bg-secondary {
+  background-color: #f9fafb;
+}
+
+.bg-accent {
+  background-color: #3b82f6;
+}
+
+/* Professional Gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.gradient-subtle {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 /* Accessibility: Respect reduced motion preference */
@@ -265,4 +485,194 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for better keyboard navigation */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .minimal-card {
+    border: 2px solid #000;
+  }
+  
+  .text-gray-600 {
+    color: #000 !important;
+  }
+  
+  .bg-gray-100 {
+    background-color: #f0f0f0 !important;
+  }
+}
+
+/* Touch target improvements */
+@media (hover: none) and (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ===== RIBRIZ MOBILE HOTFIX ===== */
+html, body {
+  overflow-x: hidden;                 /* kill sideways scroll */
+  -webkit-text-size-adjust: 100%;
+}
+
+:root{
+  --container-pad: clamp(16px, 5vw, 24px);
+  --radius: 14px;
+}
+
+/* Container sanity */
+.container, .wrap, .page, .section, main, header, footer {
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Fluid type - override existing styles */
+h1 { 
+  font-size: clamp(1.8rem, 5.2vw + 1rem, 2.6rem) !important; 
+  line-height: 1.15 !important; 
+}
+h2 { 
+  font-size: clamp(1.35rem, 3.3vw + 0.9rem, 1.9rem) !important; 
+  line-height: 1.2 !important; 
+}
+p, li, input, button { 
+  font-size: clamp(0.98rem, 0.9vw + 0.7rem, 1.05rem) !important; 
+  line-height: 1.6 !important; 
+}
+
+/* Badges at top (Trustpilot etc.) */
+.badge, .pill, .chip{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .8rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Hero + CTA */
+.hero { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 1rem; 
+}
+.hero img, .hero picture, .hero video { 
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+}
+.cta, .btn-primary {
+  width: 100%;
+  min-height: 52px;                    /* 44px+ hit target */
+  border-radius: var(--radius);
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+/* Inputs/search bars */
+input[type="text"], input[type="email"], select, textarea, .input, .search {
+  width: 100%; 
+  min-height: 48px; 
+  border-radius: var(--radius);
+}
+
+/* Cards / icon tiles ("Get university shortlist" section) */
+.cards, .grid, .tiles {
+  display: grid; 
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px){ 
+  .cards, .grid, .tiles { 
+    grid-template-columns: 1fr 1fr; 
+  } 
+}
+@media (min-width: 1024px){ 
+  .cards, .grid, .tiles { 
+    grid-template-columns: repeat(3, 1fr); 
+  } 
+}
+.card { 
+  min-height: 120px; 
+  border-radius: 18px; 
+}
+
+/* Tables on mobile */
+.table-wrap { 
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+}
+table { 
+  min-width: 640px; 
+}
+
+/* Kill fixed widths/heights that cause overflow */
+[class*="col-"], [class*="w-"], [style*="width:"], [style*="height:"]{
+  max-width: 100% !important;
+}
+img { 
+  height: auto; 
+  max-width: 100%; 
+}
+
+/* Nav – collapse to hamburger */
+.nav-links { 
+  display: none; 
+}
+.nav-toggle[aria-expanded="true"] + .nav-links { 
+  display: block; 
+}
+.nav-links a { 
+  display:block; 
+  padding:.75rem 0; 
+}
+
+/* Safe spacing between sections */
+.section { 
+  padding-top: clamp(20px, 5vw, 36px); 
+  padding-bottom: clamp(20px, 5vw, 36px); 
 }

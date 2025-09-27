@@ -58,58 +58,59 @@ export default function WorkInEurope() {
   ]
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-fluid-lg bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gray-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-50/40 to-indigo-50/40 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-slate-50/30 to-gray-50/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
-            <Briefcase className="h-4 w-4 mr-2 text-gray-600" />
-            <span className="text-sm font-medium text-gray-700 tracking-wide">Career Opportunities</span>
+      <div className="relative max-w-7xl mx-auto px-fluid-sm">
+        {/* Professional Header */}
+        <div className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center px-4 py-2.5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg mb-8 sm:mb-10">
+            <Briefcase className="h-5 w-5 mr-3 text-blue-600" />
+            <span className="text-sm font-semibold text-gray-900 tracking-wide">Verified Career Opportunities</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-            <span className="elegant-text">Work in</span>
-            <span className="text-blue-900 block">
+          <h2 className="text-fluid-4xl sm:text-fluid-5xl md:text-fluid-6xl font-bold mb-6 sm:mb-8 tracking-tight">
+            <span className="block text-gray-900">Work in</span>
+            <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 bg-clip-text text-transparent">
               Europe
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Discover exciting career opportunities across Europe. From tech positions to skilled trades, 
-            find your perfect job match with our comprehensive placement services.
+          <p className="text-fluid-lg sm:text-fluid-xl text-gray-600 max-w-4xl mx-auto leading-fluid-relaxed font-medium px-4">
+            Discover verified career opportunities across Europe. From tech positions to skilled trades, 
+            find your perfect job match with our comprehensive placement services and work permit assistance.
           </p>
         </div>
 
         {/* Positions Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 elegant-text">Explore Career Positions</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Choose from a wide range of professional positions and internship opportunities
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-fluid-2xl sm:text-fluid-3xl font-bold text-gray-900 mb-4 sm:mb-6 elegant-text">Explore Career Positions</h3>
+            <p className="text-fluid-base sm:text-fluid-lg text-gray-600 max-w-3xl mx-auto px-4 font-medium">
+              Choose from a wide range of verified professional positions and internship opportunities across Europe
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
             {positions.map((position, index) => {
               const IconComponent = position.icon
               return (
-                <div key={index} className="minimal-card rounded-2xl p-8 subtle-hover refined-shadow">
-                  <div className="text-center mb-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
-                      <IconComponent className="h-8 w-8 text-gray-600" />
+                <div key={index} className="professional-card p-6 sm:p-8 hover:shadow-xl transition-all duration-300 cursor-pointer group">
+                  <div className="text-center mb-6 sm:mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 rounded-2xl mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                      <IconComponent className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-blue-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{position.category}</h4>
-                    <p className="text-gray-600 text-sm">{position.description}</p>
+                    <h4 className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-3">{position.category}</h4>
+                    <p className="text-gray-600 text-fluid-sm sm:text-fluid-base font-medium">{position.description}</p>
                   </div>
                   
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                     {position.jobs.map((job, jobIndex) => (
                       <div key={jobIndex} className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
-                        <span className="text-sm">{job}</span>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></div>
+                        <span className="text-fluid-sm sm:text-fluid-base font-medium">{job}</span>
                       </div>
                     ))}
                   </div>
@@ -121,38 +122,38 @@ export default function WorkInEurope() {
           <div className="text-center">
             <Link 
               href="/positions"
-              className="inline-flex items-center bg-blue-900 text-white px-10 py-4 rounded-lg hover:bg-blue-800 subtle-hover font-medium text-lg tracking-wide elegant-shadow group"
+              className="inline-flex items-center bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:from-blue-800 hover:via-blue-700 hover:to-indigo-800 subtle-hover font-semibold text-fluid-base sm:text-fluid-lg tracking-wide shadow-xl hover:shadow-2xl group min-h-[48px] transition-all duration-300"
             >
               <Briefcase className="mr-3 h-6 w-6" />
-              Start Now
+              Explore All Positions
               <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
         </div>
 
-        {/* Skilled Jobs Section */}
-        <div className="minimal-card rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 elegant-text">Skilled Trade Positions</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              High-demand skilled positions with excellent earning potential and job security
+        {/* Professional Skilled Jobs Section */}
+        <div className="professional-card rounded-3xl p-8 sm:p-10 md:p-12">
+          <div className="text-center mb-16">
+            <h3 className="text-fluid-3xl font-bold text-gray-900 mb-6 elegant-text">High-Demand Skilled Positions</h3>
+            <p className="text-fluid-lg text-gray-600 max-w-3xl mx-auto font-medium">
+              High-demand skilled positions with excellent earning potential, job security, and work permit assistance
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
             {skilledJobs.map((job, index) => {
               const IconComponent = job.icon
               return (
-                <div key={index} className="minimal-card rounded-xl p-6 subtle-hover refined-shadow">
+                <div key={index} className="professional-card rounded-2xl p-6 sm:p-8 subtle-hover cursor-pointer group">
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gray-100 rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
-                      <IconComponent className="h-6 w-6 text-gray-600" />
+                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200/50 rounded-2xl mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                      <IconComponent className="h-7 w-7 sm:h-8 sm:w-8 text-gray-600" />
                     </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">{job.title}</h4>
-                    <p className="text-sm text-gray-600 mb-3">{job.description}</p>
-                    <div className="space-y-2">
-                      <div className="text-sm font-semibold text-gray-900">{job.salary}</div>
-                      <div className="text-xs text-gray-500">Demand: {job.demand}</div>
+                    <h4 className="text-fluid-lg sm:text-fluid-xl font-bold text-gray-900 mb-3">{job.title}</h4>
+                    <p className="text-fluid-sm text-gray-600 mb-4 font-medium">{job.description}</p>
+                    <div className="space-y-3">
+                      <div className="text-fluid-sm font-semibold text-gray-900 bg-gray-50 px-3 py-2 rounded-lg">{job.salary}</div>
+                      <div className="text-fluid-xs text-gray-500 font-medium">Demand: <span className="text-green-600 font-semibold">{job.demand}</span></div>
                     </div>
                   </div>
                 </div>
@@ -165,40 +166,40 @@ export default function WorkInEurope() {
               href="https://ribriz.pl/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-blue-900 text-white px-10 py-4 rounded-lg hover:bg-blue-800 subtle-hover font-medium text-lg tracking-wide elegant-shadow group"
+              className="inline-flex items-center bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:from-blue-800 hover:via-blue-700 hover:to-indigo-800 subtle-hover font-semibold text-fluid-base sm:text-fluid-lg tracking-wide shadow-xl hover:shadow-2xl group min-h-[48px] transition-all duration-300"
             >
               <Briefcase className="mr-3 h-6 w-6" />
-              Apply Now
+              Apply for Jobs Now
               <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
-            <p className="text-sm text-gray-500 mt-4">
-              Redirects to our main job portal at ribriz.pl
+            <p className="text-fluid-sm text-gray-500 mt-6 font-medium">
+              Redirects to our verified job portal at ribriz.pl
             </p>
           </div>
         </div>
 
-        {/* Benefits Section */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-xl mb-4 refined-shadow">
-              <MapPin className="h-8 w-8 text-gray-600" />
+        {/* Professional Benefits Section */}
+        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-300 shadow-lg">
+              <MapPin className="h-9 w-9 sm:h-10 sm:w-10 text-blue-600" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">50+ European Countries</h4>
-            <p className="text-gray-600">Work opportunities across all major European nations</p>
+            <h4 className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-3">50+ European Countries</h4>
+            <p className="text-gray-600 text-fluid-sm sm:text-fluid-base font-medium">Work opportunities across all major European nations with work permit assistance</p>
           </div>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-xl mb-4 refined-shadow">
-              <Star className="h-8 w-8 text-gray-600" />
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/50 rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-300 shadow-lg">
+              <Star className="h-9 w-9 sm:h-10 sm:w-10 text-green-600" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Verified Employers</h4>
-            <p className="text-gray-600">All job opportunities are from verified and trusted employers</p>
+            <h4 className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-3">Verified Employers</h4>
+            <p className="text-gray-600 text-fluid-sm sm:text-fluid-base font-medium">All job opportunities are from verified and trusted employers with transparent processes</p>
           </div>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-xl mb-4 refined-shadow">
-              <Users className="h-8 w-8 text-gray-600" />
+          <div className="text-center sm:col-span-2 lg:col-span-1 group">
+            <div className="inline-flex items-center justify-center w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/50 rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-300 shadow-lg">
+              <Users className="h-9 w-9 sm:h-10 sm:w-10 text-purple-600" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">10,000+ Placements</h4>
-            <p className="text-gray-600">Successfully placed thousands of professionals in Europe</p>
+            <h4 className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-3">10,000+ Placements</h4>
+            <p className="text-gray-600 text-fluid-sm sm:text-fluid-base font-medium">Successfully placed thousands of professionals in Europe with ongoing support</p>
           </div>
         </div>
       </div>

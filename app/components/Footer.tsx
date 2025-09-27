@@ -4,94 +4,95 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-50 via-white to-gray-50/50 border-t border-gray-200/60 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gray-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-blue-50/40 to-indigo-50/40 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-slate-50/30 to-gray-50/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         {/* Company Information Section */}
-        <div className="grid lg:grid-cols-3 gap-12 mb-20">
+        <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 mb-16 sm:mb-20">
           <div className="lg:col-span-2">
-            <div className="mb-8">
+            <div className="mb-6 sm:mb-8">
               <Image
                 src="/logo.png"
                 alt="Ribriz Overseas Logo"
                 width={240}
                 height={80}
-                className="h-16 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                className="h-12 sm:h-16 w-auto object-contain hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <p className="text-gray-600 mb-8 max-w-2xl leading-relaxed text-lg font-light">
-              Your premium partner for international career opportunities. We bridge the gap between 
-              ambitious professionals and global job markets with verified opportunities and transparent processes.
+            <p className="text-gray-600 mb-6 sm:mb-8 max-w-2xl leading-relaxed text-base sm:text-lg font-medium">
+              Your trusted partner for international career opportunities. We bridge the gap between 
+              ambitious professionals and global job markets with verified opportunities, transparent processes, and expert guidance.
             </p>
             
-            {/* Company Credentials */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="minimal-card rounded-xl p-4 flex items-center">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <Award className="h-5 w-5 text-gray-600" />
+            {/* Professional Company Credentials */}
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <Award className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">CIN</div>
-                  <div className="text-sm text-gray-600">U85499KA2024PTC187740</div>
+                  <div className="text-sm font-semibold text-gray-900">CIN</div>
+                  <div className="text-sm text-gray-600 font-medium">U85499KA2024PTC187740</div>
                 </div>
               </div>
-              <div className="minimal-card rounded-xl p-4 flex items-center">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <Award className="h-5 w-5 text-gray-600" />
+              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <Award className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">GST</div>
-                  <div className="text-sm text-gray-600">29AANCR5772Q1Z6</div>
+                  <div className="text-sm font-semibold text-gray-900">GST</div>
+                  <div className="text-sm text-gray-600 font-medium">29AANCR5772Q1Z6</div>
                 </div>
               </div>
             </div>
             
-            <div className="mt-4">
-              <div className="minimal-card rounded-xl p-4 flex items-center">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <Award className="h-5 w-5 text-gray-600" />
+            <div className="mt-6">
+              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <Award className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Certification</div>
-                  <div className="text-sm text-gray-600">Startup India Certified Company</div>
+                  <div className="text-sm font-semibold text-gray-900">Certification</div>
+                  <div className="text-sm text-gray-600 font-medium">Startup India Certified Company</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Information */}
-          <div className="minimal-card rounded-2xl p-8">
-            <h4 className="text-xl font-bold mb-6 tracking-tight text-gray-900 elegant-text">Contact Information</h4>
-            <div className="space-y-4">
-              <div className="flex items-center p-4 minimal-border rounded-xl">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <MapPin className="h-5 w-5 text-gray-600" />
+          {/* Professional Contact Information */}
+          <div className="professional-card rounded-3xl p-8 sm:p-10">
+            <h4 className="text-xl sm:text-2xl font-bold mb-8 tracking-tight text-gray-900 elegant-text">Get in Touch</h4>
+            <div className="space-y-6">
+              <div className="flex items-start p-5 professional-border rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <MapPin className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Main Office</div>
-                  <div className="text-sm text-gray-600">UNIT 101, Oxford Tower, 139,<br />HAL Old Airport Rd, Kodihalli,<br />Bengaluru, Karnataka 560008, India</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Main Office</div>
+                  <div className="text-sm text-gray-600 font-medium leading-relaxed">UNIT 101, Oxford Tower, 139,<br />HAL Old Airport Rd, Kodihalli,<br />Bengaluru, Karnataka 560008, India</div>
                 </div>
               </div>
-              <div className="flex items-center p-4 minimal-border rounded-xl">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <Mail className="h-5 w-5 text-gray-600" />
+              <div className="flex items-start p-5 professional-border rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <Mail className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Email</div>
-                  <div className="text-sm text-gray-600">hello@ribriz.com</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Email</div>
+                  <div className="text-sm text-gray-600 font-medium">hello@ribriz.com</div>
                 </div>
               </div>
-              <div className="flex items-center p-4 minimal-border rounded-xl">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 refined-shadow">
-                  <Phone className="h-5 w-5 text-gray-600" />
+              <div className="flex items-start p-5 professional-border rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <Phone className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Phone</div>
-                  <div className="text-sm text-gray-600">+91 8076823071 (India)<br />+48 453283671 (Poland)</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">Phone</div>
+                  <div className="text-sm text-gray-600 font-medium leading-relaxed">+91 8076823071 (India)<br />+48 453283671 (Poland)</div>
                 </div>
               </div>
             </div>

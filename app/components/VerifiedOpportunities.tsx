@@ -54,57 +54,57 @@ const VerifiedOpportunities = () => {
   ];
 
   return (
-    <section id="opportunities" className="py-32 bg-white relative overflow-hidden">
+    <section id="opportunities" className="py-fluid-2xl bg-white relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gray-50/30 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-fluid-sm">
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
             <Sparkles className="h-4 w-4 mr-2 text-gray-600" />
-            <span className="text-sm font-medium text-gray-700 tracking-wide">Verified Opportunities</span>
+            <span className="text-fluid-sm font-medium text-gray-700 tracking-wide">Verified Opportunities</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
+          <h2 className="text-fluid-5xl md:text-fluid-6xl font-bold text-gray-900 mb-8 tracking-tight">
             <span className="elegant-text">Premium Global</span>
             <span className="text-blue-900 block">
               Career Solutions
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-fluid-xl text-gray-600 max-w-3xl mx-auto leading-fluid-relaxed font-light">
             Curated opportunities from verified employers worldwide, designed for ambitious professionals seeking international excellence.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-fluid-lg mb-20">
           {opportunities.map((opportunity, index) => {
             const IconComponent = opportunity.icon;
             return (
-              <div key={index} className="group relative minimal-card rounded-2xl p-8 overflow-hidden subtle-hover refined-shadow">
+              <div key={index} className="group relative minimal-card rounded-2xl p-6 sm:p-8 overflow-hidden subtle-hover refined-shadow">
                 {opportunity.badge && (
-                  <div className="absolute top-6 right-6 bg-gray-900 text-white text-xs font-medium px-3 py-1 rounded-full elegant-shadow">
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-900 text-white text-fluid-xs font-medium px-3 py-1 rounded-full elegant-shadow">
                     {opportunity.badge}
                   </div>
                 )}
                 
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300 refined-shadow">
+                  <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-105 transition-transform duration-300 refined-shadow">
                     <IconComponent className="h-8 w-8 text-gray-600" />
                   </div>
                   
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{opportunity.title}</h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed font-light">{opportunity.description}</p>
-                    <div className="text-2xl font-bold text-gray-900 mb-6">
+                    <h3 className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-4 tracking-tight">{opportunity.title}</h3>
+                    <p className="text-gray-600 mb-6 leading-fluid-relaxed font-light text-fluid-sm sm:text-fluid-base">{opportunity.description}</p>
+                    <div className="text-fluid-xl sm:text-fluid-2xl font-bold text-gray-900 mb-6">
                       {opportunity.price}
                     </div>
                   </div>
 
                   <ul className="space-y-3 mb-8">
                     {opportunity.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600 font-medium">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mr-3"></div>
+                      <li key={featureIndex} className="flex items-center text-fluid-sm text-gray-600 font-medium">
+                        <div className="w-2 h-2 rounded-full bg-gray-400 mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
@@ -118,7 +118,7 @@ const VerifiedOpportunities = () => {
                         setIsModalOpen(true)
                       }
                     }}
-                    className="w-full bg-blue-900 text-white py-4 px-6 rounded-lg transition-all duration-300 font-medium tracking-wide flex items-center justify-center subtle-hover elegant-shadow cursor-pointer"
+                    className="w-full bg-blue-900 text-white py-4 px-6 rounded-lg transition-all duration-300 font-medium tracking-wide flex items-center justify-center subtle-hover elegant-shadow cursor-pointer min-h-[44px]"
                   >
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -129,40 +129,40 @@ const VerifiedOpportunities = () => {
           })}
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-fluid-md mb-20">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="minimal-card rounded-xl p-8 subtle-hover refined-shadow">
+                <div className="minimal-card rounded-xl p-6 sm:p-8 subtle-hover refined-shadow">
                   <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 refined-shadow">
                     <IconComponent className="h-6 w-6 text-gray-600" />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-sm font-medium text-gray-600 tracking-wide">{stat.label}</div>
+                  <div className="text-fluid-2xl sm:text-fluid-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-fluid-sm font-medium text-gray-600 tracking-wide">{stat.label}</div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="minimal-card rounded-2xl p-12 text-center">
-          <h3 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight elegant-text">Ready to Transform Your Career?</h3>
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+        <div className="minimal-card rounded-2xl p-8 sm:p-12 text-center">
+          <h3 className="text-fluid-3xl sm:text-fluid-4xl font-bold text-gray-900 mb-6 tracking-tight elegant-text">Ready to Transform Your Career?</h3>
+          <p className="text-fluid-lg sm:text-fluid-xl text-gray-600 mb-10 max-w-2xl mx-auto font-light leading-fluid-relaxed">
             Join thousands of professionals who've elevated their careers through our premium placement services.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-fluid-md justify-center">
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="group bg-blue-900 text-white px-10 py-4 rounded-lg hover:bg-blue-800 subtle-hover font-medium text-lg tracking-wide flex items-center justify-center elegant-shadow"
+              className="group bg-blue-900 text-white px-8 sm:px-10 py-4 rounded-lg hover:bg-blue-800 subtle-hover font-medium text-fluid-base sm:text-fluid-lg tracking-wide flex items-center justify-center elegant-shadow min-h-[44px]"
             >
               Start Your Journey
               <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="group minimal-border text-gray-700 px-10 py-4 rounded-lg hover:bg-gray-50 subtle-hover font-medium text-lg refined-shadow"
+              className="group minimal-border text-gray-700 px-8 sm:px-10 py-4 rounded-lg hover:bg-gray-50 subtle-hover font-medium text-fluid-base sm:text-fluid-lg refined-shadow min-h-[44px]"
             >
               Schedule Consultation
             </button>
