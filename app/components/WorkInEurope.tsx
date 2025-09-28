@@ -58,11 +58,12 @@ export default function WorkInEurope() {
   ]
 
   return (
-    <section className="py-fluid-lg bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
+    <section className="py-fluid-lg bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-50/40 to-indigo-50/40 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-slate-50/30 to-gray-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-slate-50/40 to-gray-50/40 rounded-full blur-3xl animate-float-reverse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/30 to-indigo-50/30 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-purple-50/30 to-pink-50/30 rounded-full blur-2xl animate-float"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-fluid-sm">
@@ -72,7 +73,7 @@ export default function WorkInEurope() {
             <Briefcase className="h-5 w-5 mr-3 text-blue-600" />
             <span className="text-sm font-semibold text-gray-900 tracking-wide">Verified Career Opportunities</span>
           </div>
-          <h2 className="text-fluid-4xl sm:text-fluid-5xl md:text-fluid-6xl font-bold mb-6 sm:mb-8 tracking-tight">
+          <h2 className="text-fluid-5xl sm:text-fluid-6xl md:text-fluid-7xl font-bold mb-6 sm:mb-8 tracking-tight">
             <span className="block text-gray-900">Work in</span>
             <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 bg-clip-text text-transparent">
               Europe

@@ -495,7 +495,7 @@ export default function BlogPage() {
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
               <BookOpen className="h-4 w-4 mr-2 text-gray-600" />
@@ -531,7 +531,7 @@ export default function BlogPage() {
 
       {/* Main Content */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-3">
@@ -820,7 +820,7 @@ export default function BlogPage() {
           <div className="absolute bottom-10 right-10 w-80 h-80 bg-gray-50/20 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 minimal-card rounded-full mb-8">
               <TrendingUp className="h-4 w-4 mr-2 text-gray-600" />

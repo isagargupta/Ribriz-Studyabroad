@@ -4,11 +4,12 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-slate-50 via-white to-gray-50/50 border-t border-gray-200/60 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-50 via-white to-gray-50/60 border-t border-gray-200/80 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-blue-50/40 to-indigo-50/40 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-slate-50/30 to-gray-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-slate-50/40 to-gray-50/40 rounded-full blur-3xl animate-float-reverse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-50/30 to-indigo-50/30 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-purple-50/30 to-pink-50/30 rounded-full blur-2xl animate-float"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
@@ -29,44 +30,44 @@ const Footer = () => {
               ambitious professionals and global job markets with verified opportunities, transparent processes, and expert guidance.
             </p>
             
-            {/* Professional Company Credentials */}
+            {/* Enhanced Professional Company Credentials */}
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                  <Award className="h-6 w-6 text-blue-600" />
+              <div className="luxury-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-500 cursor-pointer">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-xl flex items-center justify-center mr-4 shadow-xl">
+                  <Award className="h-6 w-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">CIN</div>
-                  <div className="text-sm text-gray-600 font-medium">U85499KA2024PTC187740</div>
+                  <div className="text-sm font-bold text-gray-900">CIN</div>
+                  <div className="text-sm text-gray-600 font-semibold">U85499KA2024PTC187740</div>
                 </div>
               </div>
-              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                  <Award className="h-6 w-6 text-green-600" />
+              <div className="luxury-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-500 cursor-pointer">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 border border-green-200/50 rounded-xl flex items-center justify-center mr-4 shadow-xl">
+                  <Award className="h-6 w-6 text-green-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">GST</div>
-                  <div className="text-sm text-gray-600 font-medium">29AANCR5772Q1Z6</div>
+                  <div className="text-sm font-bold text-gray-900">GST</div>
+                  <div className="text-sm text-gray-600 font-semibold">29AANCR5772Q1Z6</div>
                 </div>
               </div>
             </div>
             
             <div className="mt-6">
-              <div className="professional-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                  <Award className="h-6 w-6 text-purple-600" />
+              <div className="luxury-card rounded-2xl p-5 sm:p-6 flex items-center group hover:scale-105 transition-all duration-500 cursor-pointer">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200/50 rounded-xl flex items-center justify-center mr-4 shadow-xl">
+                  <Award className="h-6 w-6 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">Certification</div>
-                  <div className="text-sm text-gray-600 font-medium">Startup India Certified Company</div>
+                  <div className="text-sm font-bold text-gray-900">Certification</div>
+                  <div className="text-sm text-gray-600 font-semibold">Startup India Certified Company</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Professional Contact Information */}
-          <div className="professional-card rounded-3xl p-8 sm:p-10">
-            <h4 className="text-xl sm:text-2xl font-bold mb-8 tracking-tight text-gray-900 elegant-text">Get in Touch</h4>
+          {/* Enhanced Professional Contact Information */}
+          <div className="luxury-card rounded-3xl p-8 sm:p-10">
+            <h4 className="text-xl sm:text-2xl font-bold mb-8 tracking-tight text-gray-900 heading-executive">Get in Touch</h4>
             <div className="space-y-6">
               <div className="flex items-start p-5 professional-border rounded-2xl group hover:scale-105 transition-all duration-300">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/50 rounded-xl flex items-center justify-center mr-4 shadow-lg">

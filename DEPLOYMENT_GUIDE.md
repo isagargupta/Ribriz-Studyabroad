@@ -147,3 +147,6 @@ If you encounter any issues during deployment, check:
 4. SSL certificate setup
 
 Your site is production-ready! 🎉
+
+
+## had to add responve hero sections. and some make it different hero sections that relate

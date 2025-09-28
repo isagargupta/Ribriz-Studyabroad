@@ -13,6 +13,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import TrustIndicators from './components/TrustIndicators'
 import TestimonialsMarquee from './components/TestimonialsMarquee'
+import WhatsAppSupport from './components/WhatsAppSupport'
+import CustomerJourney from './components/CustomerJourney'
 import { useState } from 'react'
 
 // Components that might cause hydration issues - render client-side only
@@ -30,7 +32,7 @@ export default function Home() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Header />
-      <main id="main-content" className="section">
+      <main id="main-content" className="section px-4 sm:px-6 lg:px-8">
         {/* Desktop Hero - Hidden on Mobile and Tablet */}
         <div className="hidden lg:block">
           <StudyAbroadHero />
@@ -114,6 +116,8 @@ export default function Home() {
         </div>
       </section>
       
+      <CustomerJourney />
+      <WhatsAppSupport />
       <Contact />
       </main>
       <Footer />

@@ -80,67 +80,68 @@ const StudyAbroadHero = () => {
   }, [universities.length])
 
   return (
-    <section className="hero relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20 overflow-hidden hidden lg:flex">
-      {/* Professional Background Elements */}
+    <section className="hero relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 overflow-hidden hidden lg:flex">
+      {/* Enhanced Professional Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-50/40 to-indigo-50/40 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-r from-slate-50/30 to-gray-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50/20 to-indigo-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-r from-slate-50/40 to-gray-50/40 rounded-full blur-3xl animate-float-reverse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50/30 to-indigo-50/30 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-purple-50/30 to-pink-50/30 rounded-full blur-2xl animate-float"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-fluid-sm py-fluid-2xl">
         <div className="grid lg:grid-cols-2 gap-fluid-xl items-center">
           <div className="space-y-6 sm:space-y-8 lg:space-y-12">
             <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-              {/* Customer Trust Indicators */}
+              {/* Enhanced Professional Trust Indicators */}
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                <div className="inline-flex items-center px-4 py-2.5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Star className="h-4 w-4 text-amber-500" />
-                    <span className="text-sm font-semibold text-gray-900">4.9/5 Trustpilot</span>
+                <div className="inline-flex items-center px-5 py-3 luxury-card rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+                  <div className="flex items-center space-x-3">
+                    <Star className="h-5 w-5 text-amber-500 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-sm font-bold text-gray-900">4.9/5 Trustpilot</span>
                   </div>
                 </div>
-                <div className="inline-flex items-center px-4 py-2.5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Users className="h-4 w-4 text-green-500" />
-                    <span className="text-sm font-semibold text-gray-900">25,000+ Success Stories</span>
+                <div className="inline-flex items-center px-5 py-3 luxury-card rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+                  <div className="flex items-center space-x-3">
+                    <Users className="h-5 w-5 text-green-500 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-sm font-bold text-gray-900">25,000+ Success Stories</span>
                   </div>
                 </div>
-                <div className="inline-flex items-center px-4 py-2.5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Shield className="h-4 w-4 text-blue-500" />
-                    <span className="text-sm font-semibold text-gray-900">Verified & Trusted</span>
+                <div className="inline-flex items-center px-5 py-3 luxury-card rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+                  <div className="flex items-center space-x-3">
+                    <Shield className="h-5 w-5 text-blue-500 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-sm font-bold text-gray-900">Verified & Trusted</span>
                   </div>
                 </div>
               </div>
               
-              {/* Customer-Focused Headline */}
-              <h1 className="text-fluid-4xl sm:text-fluid-5xl lg:text-fluid-6xl xl:text-fluid-7xl 2xl:text-fluid-8xl font-bold leading-fluid-tight tracking-tight">
-                <span className="block text-gray-900">Study Abroad & Work</span>
-                <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 bg-clip-text text-transparent">
+              {/* Enhanced Professional Headline */}
+              <h1 className="text-fluid-5xl sm:text-fluid-6xl lg:text-fluid-7xl xl:text-fluid-8xl 2xl:text-fluid-9xl font-bold leading-fluid-tight tracking-tight animate-professional-fade-in">
+                <span className="block heading-executive text-gray-900">Study Abroad & Work</span>
+                <span className="block heading-luxury">
                   in Europe for Indians
                 </span>
               </h1>
               
-              {/* Clear Value Proposition */}
-              <p className="text-fluid-base sm:text-fluid-lg lg:text-fluid-xl text-gray-600 leading-fluid-relaxed max-w-2xl font-medium">
+              {/* Enhanced Value Proposition */}
+              <p className="text-fluid-base sm:text-fluid-lg lg:text-fluid-xl text-gray-600 leading-fluid-relaxed max-w-2xl font-medium animate-professional-slide-up">
                 Get expert guidance for your study abroad journey and secure verified job opportunities in Europe. 
-                <span className="font-semibold text-gray-900"> Free consultation, no hidden fees.</span>
+                <span className="font-bold text-gray-900"> Free consultation, no hidden fees.</span>
               </p>
             </div>
 
-            {/* Customer-Focused CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            {/* Enhanced Professional CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-professional-scale-in">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="group bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-6 sm:px-8 lg:px-10 py-4 sm:py-5 rounded-2xl hover:from-blue-700 hover:via-blue-800 hover:to-indigo-800 transition-all duration-300 font-semibold text-sm sm:text-base flex items-center justify-center shadow-xl hover:shadow-2xl w-full sm:w-auto transform hover:-translate-y-1 min-h-[48px]"
+                className="group corporate-button text-white px-8 sm:px-10 lg:px-12 py-5 sm:py-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center shadow-2xl hover:shadow-3xl w-full sm:w-auto transform hover:-translate-y-2 min-h-[52px]"
               >
-                <span className="text-center">Get Free Consultation</span>
-                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <span className="text-center relative z-10">Get Free Consultation</span>
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-500 relative z-10" />
               </button>
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="group border-2 border-gray-300 text-gray-700 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 rounded-2xl hover:bg-gray-50 hover:border-gray-400 hover:shadow-lg transition-all duration-300 font-semibold text-sm sm:text-base inline-flex items-center justify-center w-full sm:w-auto transform hover:-translate-y-1 min-h-[48px]"
+                className="group executive-card border-2 border-gray-300 text-gray-700 px-8 sm:px-10 lg:px-12 py-5 sm:py-6 rounded-2xl hover:bg-gray-50/80 hover:border-gray-400 hover:shadow-xl transition-all duration-500 font-bold text-sm sm:text-base inline-flex items-center justify-center w-full sm:w-auto transform hover:-translate-y-2 min-h-[52px]"
               >
                 <span className="text-center">Find Jobs in Europe</span>
               </button>

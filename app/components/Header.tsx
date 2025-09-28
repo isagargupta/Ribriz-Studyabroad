@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -9,6 +9,8 @@ import SelectionModal from './SelectionModal'
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -18,100 +20,153 @@ const Header = () => {
     }
   }
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        mobileMenuRef.current &&
+        menuButtonRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [isOpen])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-3xl border-b border-gray-200/60 transition-all duration-300 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-3xl border-b border-gray-200/80 transition-all duration-500 shadow-xl">
       <div className="max-w-7xl mx-auto px-fluid-sm">
-        <div className="flex justify-between items-center h-12 sm:h-14 md:h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16 md:h-18">
           <Link href="/" className="flex items-center group">
             <div className="relative">
               <Image
                 src="/logo.png"
                 alt="Ribriz Overseas Logo"
-                width={160}
-                height={50}
-                className="h-5 sm:h-6 md:h-8 lg:h-10 w-auto object-contain group-hover:scale-105 transition-all duration-300 ease-out"
+                width={180}
+                height={60}
+                className="h-6 sm:h-7 md:h-9 lg:h-11 w-auto object-contain group-hover:scale-105 transition-all duration-500 ease-out"
                 priority
               />
-              <div className="absolute -bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-10">
             <Link 
               href="/about" 
-              className="text-gray-600 hover:text-gray-900 font-medium transition-all duration-300 relative group py-2 px-3"
+              className="text-gray-700 hover:text-gray-900 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-gray-50/80"
             >
-              <span className="relative">About</span>
-              <div className="absolute -bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+              <span className="relative text-corporate">About</span>
+              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
             </Link>
             <Link 
               href="/blog" 
-              className="text-gray-600 hover:text-gray-900 font-medium transition-all duration-300 relative group py-2 px-3"
+              className="text-gray-700 hover:text-gray-900 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-gray-50/80"
             >
-              <span className="relative">Blog</span>
-              <div className="absolute -bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+              <span className="relative text-corporate">Blog</span>
+              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
             </Link>
             
-            <div className="h-6 w-px bg-gray-200 mx-2"></div>
+            <div className="h-8 w-px bg-gradient-to-b from-gray-200 to-gray-300 mx-3"></div>
             
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold text-sm flex items-center transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group corporate-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm flex items-center transition-all duration-500 shadow-xl hover:shadow-2xl"
             >
-              <span>Start Your Journey</span>
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform duration-300 ease-out" />
+              <span className="relative z-10">Start Your Journey</span>
+              <ArrowRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
             </button>
           </nav>
 
           <button
-            className="nav-toggle md:hidden p-1.5 sm:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
-            onClick={() => setIsOpen(!isOpen)}
+            ref={menuButtonRef}
+            className="nav-toggle md:hidden p-2 sm:p-3 rounded-xl hover:bg-gray-100/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] min-w-[48px] flex items-center justify-center shadow-sm hover:shadow-md relative z-50"
+            onClick={() => {
+              console.log('Menu clicked, current state:', isOpen)
+              setIsOpen(!isOpen)
+            }}
             aria-expanded={isOpen}
             aria-label="Toggle navigation menu"
             aria-controls="mobileMenu"
           >
             {isOpen ? (
-              <X className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
             ) : (
-              <Menu className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
             )}
           </button>
         </div>
 
         {isOpen && (
           <div 
+            ref={mobileMenuRef}
             id="mobileMenu"
-            className="nav-links md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-100/50 shadow-lg z-50"
+            className="nav-links md:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-b border-gray-200/60 shadow-2xl z-40"
             role="navigation"
             aria-label="Mobile navigation"
+            style={{ 
+              display: 'block',
+              position: 'absolute',
+              top: '100%',
+              left: '0',
+              right: '0',
+              zIndex: 40
+            }}
           >
-            <nav className="flex flex-col p-3 sm:p-4 space-y-1">
+            <nav className="flex flex-col p-4 sm:p-6 space-y-2">
               <Link 
                 href="/about" 
-                className="text-left text-gray-600 hover:text-gray-900 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px] flex items-center"
+                className="text-left text-gray-700 hover:text-gray-900 font-semibold py-4 px-5 rounded-xl hover:bg-gray-50/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] flex items-center text-corporate"
                 onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
               <Link 
                 href="/blog" 
-                className="text-left text-gray-600 hover:text-gray-900 font-medium py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px] flex items-center"
+                className="text-left text-gray-700 hover:text-gray-900 font-semibold py-4 px-5 rounded-xl hover:bg-gray-50/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] flex items-center text-corporate"
                 onClick={() => setIsOpen(false)}
               >
                 Blog
               </Link>
               
-              <div className="pt-3 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-200/60">
                 <button 
                   onClick={() => {
                     setIsModalOpen(true)
                     setIsOpen(false)
                   }}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-6 py-4 rounded-xl font-semibold w-full transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] text-base shadow-lg hover:shadow-xl"
+                  className="corporate-button text-white px-6 py-4 rounded-2xl font-semibold w-full transition-all duration-500 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[52px] text-base shadow-xl hover:shadow-2xl"
                   aria-label="Start your journey"
                 >
-                  <span>Start Your Journey</span>
-                  <ArrowRight className="ml-3 h-4 w-4" />
+                  <span className="relative z-10">Start Your Journey</span>
+                  <ArrowRight className="ml-3 h-5 w-5 relative z-10" />
                 </button>
               </div>
             </nav>
