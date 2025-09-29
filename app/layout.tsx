@@ -15,19 +15,22 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas',
+    default: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas - #1 Study Abroad Consultant',
     template: '%s | Ribriz Overseas - Study Abroad & Jobs in Europe for Indians'
   },
-  description: 'Top study abroad opportunities in UK, USA, Australia, Canada, Germany, Poland for Indian students. Jobs in Europe for Indians - Poland, Lithuania, Slovakia. Scholarships & work permits.',
+  description: 'Get expert guidance for study abroad in UK, USA, Australia, Canada, Germany, Poland for Indian students. Verified jobs in Europe - Poland, Lithuania, Slovakia. Free consultation, scholarships & work permits. 25K+ successful placements.',
   keywords: [
-    'study abroad for Indian students', 'jobs in Europe for Indians', 'study abroad in UK for Indians',
-    'study abroad in USA for Indians', 'study abroad in Australia for Indians', 'study abroad in Canada for Indians',
-    'study abroad in Germany for Indians', 'study abroad in Poland for Indians', 'jobs in Poland for Indians',
-    'jobs in Lithuania for Indians', 'jobs in Slovakia for Indians', 'jobs in Germany for Indians',
-    'scholarships for Indian students', 'work permits for Indians in Europe', 'affordable study abroad for Indians',
-    'English taught programs abroad', 'top universities abroad for Indians', 'warehouse jobs in Europe',
-    'construction jobs abroad', 'truck driver jobs abroad', 'welder jobs abroad', 'factory jobs abroad',
-    'skilled jobs abroad', 'unskilled jobs abroad', 'study abroad cost for Indians', 'student visa for Indians'
+    'study abroad for Indian students', 'jobs in Europe for Indians', 'study abroad consultant India',
+    'study abroad in UK for Indians', 'study abroad in USA for Indians', 'study abroad in Australia for Indians', 
+    'study abroad in Canada for Indians', 'study abroad in Germany for Indians', 'study abroad in Poland for Indians',
+    'jobs in Poland for Indians', 'jobs in Lithuania for Indians', 'jobs in Slovakia for Indians', 
+    'jobs in Germany for Indians', 'scholarships for Indian students', 'work permits for Indians in Europe',
+    'affordable study abroad for Indians', 'English taught programs abroad', 'top universities abroad for Indians',
+    'warehouse jobs in Europe', 'construction jobs abroad', 'truck driver jobs abroad', 'welder jobs abroad',
+    'factory jobs abroad', 'skilled jobs abroad', 'unskilled jobs abroad', 'study abroad cost for Indians',
+    'student visa for Indians', 'study abroad consultant', 'overseas education consultant', 'international education',
+    'study abroad guidance', 'career guidance abroad', 'European jobs for Indians', 'work in Europe',
+    'study in Europe', 'European universities', 'international student support', 'visa assistance India'
   ],
   authors: [{ name: 'Ribriz Overseas' }],
   creator: 'Ribriz Overseas',
@@ -58,23 +61,25 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://ribriz.com',
-    title: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas',
-    description: 'Top study abroad opportunities in UK, USA, Australia, Canada, Germany, Poland for Indian students. Jobs in Europe for Indians - Poland, Lithuania, Slovakia.',
+    title: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas - #1 Study Abroad Consultant',
+    description: 'Get expert guidance for study abroad in UK, USA, Australia, Canada, Germany, Poland for Indian students. Verified jobs in Europe - Poland, Lithuania, Slovakia. Free consultation, scholarships & work permits. 25K+ successful placements.',
     siteName: 'Ribriz Overseas',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Ribriz Overseas - Study Abroad & Jobs in Europe for Indians',
+        alt: 'Ribriz Overseas - Study Abroad & Jobs in Europe for Indians - Expert Guidance for International Education',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas',
-    description: 'Top study abroad opportunities in UK, USA, Australia, Canada, Germany, Poland for Indian students. Jobs in Europe for Indians.',
+    title: 'Study Abroad & Jobs in Europe for Indians | Ribriz Overseas - #1 Study Abroad Consultant',
+    description: 'Get expert guidance for study abroad in UK, USA, Australia, Canada, Germany, Poland for Indian students. Verified jobs in Europe - Poland, Lithuania, Slovakia. Free consultation, scholarships & work permits. 25K+ successful placements.',
     images: ['/logo.png'],
+    creator: '@ribrizoverseas',
+    site: '@ribrizoverseas',
   },
   robots: {
     index: true,
@@ -110,28 +115,63 @@ export default function RootLayout({
 }) {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "EducationalOrganization",
     "name": "Ribriz Overseas",
+    "alternateName": "Ribriz Study Abroad Consultants",
     "url": "https://ribriz.com",
     "logo": "https://ribriz.com/logo.png",
-    "description": "Premium international career placement services for study abroad and global job opportunities for Indian students",
+    "description": "India's leading study abroad consultant providing expert guidance for international education and job placement services. 25K+ successful student placements in UK, USA, Australia, Canada, Germany, Poland.",
+    "foundingDate": "2020",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "IN"
+      "addressCountry": "IN",
+      "addressRegion": "India"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-8076823071",
-      "contactType": "customer service",
-      "email": "hello@ribriz.com"
-    },
-    "sameAs": [
-      "https://ribriz.pl"
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-8076823071",
+        "contactType": "customer service",
+        "email": "hello@ribriz.com",
+        "availableLanguage": ["English", "Hindi"]
+      }
     ],
-    "serviceArea": {
-      "@type": "Country",
-      "name": "India"
-    },
+    "sameAs": [
+      "https://ribriz.pl",
+      "https://www.linkedin.com/company/ribriz-overseas",
+      "https://www.facebook.com/ribrizoverseas",
+      "https://www.instagram.com/ribrizoverseas"
+    ],
+    "serviceArea": [
+      {
+        "@type": "Country",
+        "name": "India"
+      },
+      {
+        "@type": "Country", 
+        "name": "United Kingdom"
+      },
+      {
+        "@type": "Country",
+        "name": "United States"
+      },
+      {
+        "@type": "Country",
+        "name": "Australia"
+      },
+      {
+        "@type": "Country",
+        "name": "Canada"
+      },
+      {
+        "@type": "Country",
+        "name": "Germany"
+      },
+      {
+        "@type": "Country",
+        "name": "Poland"
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Study Abroad and Job Placement Services",
@@ -141,7 +181,11 @@ export default function RootLayout({
           "itemOffered": {
             "@type": "Service",
             "name": "Study Abroad Consulting",
-            "description": "Expert guidance for international education with university partnerships and scholarship opportunities"
+            "description": "Expert guidance for international education with university partnerships and scholarship opportunities. Free consultation and visa assistance.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Ribriz Overseas"
+            }
           }
         },
         {
@@ -149,11 +193,44 @@ export default function RootLayout({
           "itemOffered": {
             "@type": "Service",
             "name": "International Job Placement",
-            "description": "Connect with verified employers across Poland, Germany, Lithuania, Czechia, and UAE for permanent positions"
+            "description": "Connect with verified employers across Poland, Germany, Lithuania, Czechia, and UAE for permanent positions. Work permit assistance included.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Ribriz Overseas"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Scholarship Guidance",
+            "description": "Expert assistance in finding and applying for scholarships and financial aid for international students.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Ribriz Overseas"
+            }
           }
         }
       ]
-    }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "25000",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "knowsAbout": [
+      "Study Abroad",
+      "International Education",
+      "Student Visa",
+      "Scholarships",
+      "Job Placement",
+      "Work Permits",
+      "University Applications",
+      "Career Guidance"
+    ]
   }
 
   return (
@@ -216,6 +293,70 @@ export default function RootLayout({
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Enhanced SEO Meta Tags */}
+        <meta name="geo.region" content="IN" />
+        <meta name="geo.placename" content="India" />
+        <meta name="geo.position" content="20.5937;78.9629" />
+        <meta name="ICBM" content="20.5937, 78.9629" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="1 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="target" content="all" />
+        <meta name="audience" content="all" />
+        <meta name="coverage" content="worldwide" />
+        <meta name="classification" content="Education, Study Abroad, Job Placement" />
+        <meta name="category" content="Education" />
+        <meta name="subject" content="Study Abroad, International Education, Job Placement" />
+        <meta name="abstract" content="Expert study abroad guidance and job placement services for Indian students. 25K+ successful placements in UK, USA, Australia, Canada, Germany, Poland." />
+        <meta name="summary" content="India's leading study abroad consultant providing expert guidance for international education and job placement services." />
+        <meta name="designer" content="Ribriz Overseas" />
+        <meta name="copyright" content="Ribriz Overseas" />
+        <meta name="reply-to" content="hello@ribriz.com" />
+        <meta name="owner" content="Ribriz Overseas" />
+        <meta name="url" content="https://ribriz.com" />
+        <meta name="identifier-URL" content="https://ribriz.com" />
+        <meta name="directory" content="submission" />
+        <meta name="pagename" content="Study Abroad & Jobs in Europe for Indians" />
+        <meta name="category" content="Education" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="target" content="all" />
+        <meta name="audience" content="all" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* AI Search Optimization */}
+        <meta name="ai-content-type" content="educational-consulting" />
+        <meta name="ai-topic" content="study-abroad, international-education, job-placement" />
+        <meta name="ai-expertise" content="education-consulting, visa-assistance, scholarship-guidance" />
+        <meta name="ai-target-audience" content="indian-students, international-education-seekers" />
+        <meta name="ai-service-area" content="india, uk, usa, australia, canada, germany, poland" />
+        
+        {/* Additional Schema Markup for AI Understanding */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Ribriz Overseas",
+              "url": "https://ribriz.com",
+              "description": "India's leading study abroad consultant providing expert guidance for international education and job placement services.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://ribriz.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Ribriz Overseas",
+                "url": "https://ribriz.com"
+              }
+            })
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

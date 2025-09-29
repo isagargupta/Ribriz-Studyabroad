@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { MapPin, Mail, Phone, Clock, MessageCircle, Send, Globe, Award } from 'lucide-react';
+import { MapPin, Mail, Clock, MessageCircle, Send, Globe, Award } from 'lucide-react';
 import { trackContactConversion, trackContactConversionWithNavigation } from './GoogleAnalytics';
 
 const Contact = () => {
@@ -16,12 +16,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const contactNumbers = [
-    { number: '+48 453283281', country: 'Poland', flag: '🇵🇱' },
-    { number: '+91 8076823071', country: 'India', flag: '🇮🇳' },
-    { number: '+48 793917254', country: 'Poland', flag: '🇵🇱' },
-    { number: '+1 555 719 1438', country: 'USA', flag: '🇺🇸' }
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -120,29 +114,6 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="minimal-card rounded-2xl p-6 sm:p-8">
-              <div className="flex items-start space-x-4 sm:space-x-6 mb-6">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-100 rounded-xl flex items-center justify-center refined-shadow flex-shrink-0">
-                  <Phone className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600" />
-                </div>
-                <div className="w-full">
-                  <h4 className="font-bold text-gray-900 text-fluid-lg sm:text-fluid-xl mb-4 tracking-tight elegant-text">WhatsApp Support</h4>
-                  <div className="grid gap-3">
-                    {contactNumbers.map((contact, index) => (
-                      <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 minimal-border rounded-xl hover:bg-gray-50 subtle-hover gap-2 sm:gap-0">
-                        <div className="flex items-center space-x-4">
-                          <span className="text-2xl">{contact.flag}</span>
-                          <span className="text-gray-800 font-semibold text-fluid-sm sm:text-fluid-base">{contact.number}</span>
-                        </div>
-                        <span className="text-fluid-xs sm:text-fluid-sm text-gray-700 font-medium px-3 sm:px-4 py-2 bg-gray-100 rounded-full self-start sm:self-auto">
-                          {contact.country}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div className="minimal-card rounded-2xl p-6 sm:p-8">
               <div className="flex items-start space-x-4 sm:space-x-6">

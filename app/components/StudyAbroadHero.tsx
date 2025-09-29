@@ -116,7 +116,7 @@ const StudyAbroadHero = () => {
               </div>
               
               {/* Enhanced Professional Headline */}
-              <h1 className="text-fluid-5xl sm:text-fluid-6xl lg:text-fluid-7xl xl:text-fluid-8xl 2xl:text-fluid-9xl font-bold leading-fluid-tight tracking-tight animate-professional-fade-in">
+              <h1 className="text-fluid-5xl sm:text-fluid-6xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold leading-fluid-tight tracking-tight animate-professional-fade-in">
                 <span className="block heading-executive text-gray-900">Study Abroad & Work</span>
                 <span className="block heading-luxury">
                   in Europe for Indians

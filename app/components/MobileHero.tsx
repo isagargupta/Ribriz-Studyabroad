@@ -31,7 +31,7 @@ const MobileHero = () => {
           
           {/* Main Headline */}
           <div className="text-center space-y-3">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight">
               <span className="block text-gray-900">Your global</span>
               <span className="block text-gray-900">future,</span>
               <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">

@@ -13,8 +13,8 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 24,
-          background: 'linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%)',
+          fontSize: 20,
+          background: '#2563eb',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -22,9 +22,14 @@ export default function Icon() {
           justifyContent: 'center',
           color: 'white',
           fontWeight: 'bold',
+          fontFamily: 'sans-serif',
+          position: 'relative',
         }}
       >
-        R
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ fontSize: 16, marginBottom: -5 }}>✈️</div>
+          <div style={{ fontSize: 20, fontWeight: 'bold' }}>riz</div>
+        </div>
       </div>
     ),
     {

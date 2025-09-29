@@ -61,7 +61,7 @@ const Header = () => {
   }, [isOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-3xl border-b border-gray-200/80 transition-all duration-500 shadow-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#2563eb] backdrop-blur-3xl border-b border-blue-500/30 transition-all duration-500 shadow-xl">
       <div className="max-w-7xl mx-auto px-fluid-sm">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-18">
           <Link href="/" className="flex items-center group">
@@ -81,24 +81,24 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-10">
             <Link 
               href="/about" 
-              className="text-gray-700 hover:text-gray-900 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-gray-50/80"
+              className="text-white hover:text-blue-100 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-white/10"
             >
-              <span className="relative text-corporate">About</span>
-              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
+              <span className="relative">About</span>
+              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-white/0 via-white to-white/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
             </Link>
             <Link 
               href="/blog" 
-              className="text-gray-700 hover:text-gray-900 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-gray-50/80"
+              className="text-white hover:text-blue-100 font-semibold transition-all duration-500 relative group py-3 px-4 rounded-lg hover:bg-white/10"
             >
-              <span className="relative text-corporate">Blog</span>
-              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600/0 via-blue-600 to-blue-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
+              <span className="relative">Blog</span>
+              <div className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-white/0 via-white to-white/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
             </Link>
             
-            <div className="h-8 w-px bg-gradient-to-b from-gray-200 to-gray-300 mx-3"></div>
+            <div className="h-8 w-px bg-gradient-to-b from-white/30 to-white/50 mx-3"></div>
             
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group corporate-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm flex items-center transition-all duration-500 shadow-xl hover:shadow-2xl"
+              className="group bg-white text-[#2563eb] hover:bg-blue-50 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm flex items-center transition-all duration-500 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563eb]"
             >
               <span className="relative z-10">Start Your Journey</span>
               <ArrowRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
@@ -107,7 +107,7 @@ const Header = () => {
 
           <button
             ref={menuButtonRef}
-            className="nav-toggle md:hidden p-2 sm:p-3 rounded-xl hover:bg-gray-100/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] min-w-[48px] flex items-center justify-center shadow-sm hover:shadow-md relative z-50"
+            className="nav-toggle md:hidden p-2 sm:p-3 rounded-xl hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563eb] min-h-[48px] min-w-[48px] flex items-center justify-center shadow-sm hover:shadow-md relative z-50"
             onClick={() => {
               console.log('Menu clicked, current state:', isOpen)
               setIsOpen(!isOpen)
@@ -117,9 +117,9 @@ const Header = () => {
             aria-controls="mobileMenu"
           >
             {isOpen ? (
-              <X className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             ) : (
-              <Menu className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             )}
           </button>
         </div>
@@ -128,7 +128,7 @@ const Header = () => {
           <div 
             ref={mobileMenuRef}
             id="mobileMenu"
-            className="nav-links md:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-b border-gray-200/60 shadow-2xl z-40"
+            className="nav-links md:hidden absolute top-full left-0 right-0 bg-[#2563eb] backdrop-blur-2xl border-b border-blue-500/30 shadow-2xl z-40"
             role="navigation"
             aria-label="Mobile navigation"
             style={{ 
@@ -143,26 +143,26 @@ const Header = () => {
             <nav className="flex flex-col p-4 sm:p-6 space-y-2">
               <Link 
                 href="/about" 
-                className="text-left text-gray-700 hover:text-gray-900 font-semibold py-4 px-5 rounded-xl hover:bg-gray-50/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] flex items-center text-corporate"
+                className="text-left text-white hover:text-blue-100 font-semibold py-4 px-5 rounded-xl hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563eb] min-h-[48px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
               <Link 
                 href="/blog" 
-                className="text-left text-gray-700 hover:text-gray-900 font-semibold py-4 px-5 rounded-xl hover:bg-gray-50/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] flex items-center text-corporate"
+                className="text-left text-white hover:text-blue-100 font-semibold py-4 px-5 rounded-xl hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563eb] min-h-[48px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 Blog
               </Link>
               
-              <div className="pt-4 border-t border-gray-200/60">
+              <div className="pt-4 border-t border-white/30">
                 <button 
                   onClick={() => {
                     setIsModalOpen(true)
                     setIsOpen(false)
                   }}
-                  className="corporate-button text-white px-6 py-4 rounded-2xl font-semibold w-full transition-all duration-500 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[52px] text-base shadow-xl hover:shadow-2xl"
+                  className="bg-white text-[#2563eb] hover:bg-blue-50 px-6 py-4 rounded-2xl font-semibold w-full transition-all duration-500 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563eb] min-h-[52px] text-base shadow-xl hover:shadow-2xl"
                   aria-label="Start your journey"
                 >
                   <span className="relative z-10">Start Your Journey</span>

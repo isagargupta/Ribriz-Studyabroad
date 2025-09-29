@@ -89,7 +89,7 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
@@ -97,7 +97,7 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
       />
       
       {/* Modal */}
-      <div className="relative bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200/50 p-4 sm:p-6 lg:p-8 w-full max-w-lg sm:max-w-xl lg:max-w-2xl max-h-[80vh] overflow-y-auto m-4 sm:m-8 transform transition-all duration-300 scale-100">
+      <div className="relative bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200/50 p-4 sm:p-6 lg:p-8 w-full max-w-lg sm:max-w-xl lg:max-w-2xl max-h-[80vh] overflow-y-auto mx-4 my-8 sm:mx-8 sm:my-12 transform transition-all duration-300 scale-100" style={{ margin: '2rem' }}>
         {/* Close Button */}
         <button
           onClick={handleClose}
