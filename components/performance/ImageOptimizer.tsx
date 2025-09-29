@@ -35,7 +35,7 @@ export function ImageOptimizer({
       className={className}
       sizes={sizes || config.sizes}
       quality={quality}
-      placeholder={priority ? undefined : config.placeholder}
+      placeholder={priority ? undefined : (config.placeholder as 'blur' | 'empty')}
       blurDataURL={priority ? undefined : config.blurDataURL}
       loading={priority ? 'eager' : lazyConfig.loading}
       decoding={lazyConfig.decoding}
