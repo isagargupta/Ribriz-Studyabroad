@@ -4,10 +4,12 @@ export function generatePerformanceMeta(): Partial<Metadata> {
   return {
     other: {
       'dns-prefetch': 'https://fonts.googleapis.com',
-      'preconnect': 'https://fonts.googleapis.com',
-      'preconnect': 'https://fonts.gstatic.com',
-      'preconnect': 'https://www.google-analytics.com',
-      'preconnect': 'https://www.googletagmanager.com',
+      'preconnect': [
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com',
+        'https://www.google-analytics.com',
+        'https://www.googletagmanager.com'
+      ].join(', ')
     }
   }
 }
