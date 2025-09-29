@@ -97,7 +97,7 @@ const SelectionModal: React.FC<SelectionModalProps> = ({ isOpen, onClose, initia
       />
       
       {/* Modal */}
-      <div className="relative bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200/50 p-4 sm:p-6 lg:p-8 max-w-2xl w-full mx-4 transform transition-all duration-300 scale-100">
+      <div className="relative bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200/50 p-4 sm:p-6 lg:p-8 w-full max-w-lg sm:max-w-xl lg:max-w-2xl max-h-[80vh] overflow-y-auto m-4 sm:m-8 transform transition-all duration-300 scale-100">
         {/* Close Button */}
         <button
           onClick={handleClose}
